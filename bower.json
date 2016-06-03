@@ -1,0 +1,26 @@
+{
+  "name": "slick",
+  "description": "Slack for Music: provide real time event driven collaboration between users for synchronized music playback and DJ delegation",
+  "main": "index.js",
+  "authors": [
+    "Michael-Bryant Choa",
+    "Jenna Davis",
+    "Brendan Del Rosario",
+    "Jerry Mao"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/bjdelro/slick",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-mocks": "^1.5.6",
+    "angular-route": "^1.5.6",
+    "angular-material": "^1.0.9"
+  }
+}

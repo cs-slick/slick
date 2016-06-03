@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/mbchoa/slick/issues"
   },
-  "homepage": "https://github.com/mbchoa/slick#readme"
+  "homepage": "https://github.com/mbchoa/slick#readme",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "chai": "^3.5.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "mocha": "^2.5.3",
+    "node": "0.0.0",
+    "socket.io": "^1.4.6"
+  }
 }
