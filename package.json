@@ -1,0 +1,19 @@
+{
+  "name": "slick",
+  "version": "1.0.0",
+  "description": "Slack for Music: provide real time event driven collaboration between users for synchronized music playback and DJ delegation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbchoa/slick.git"
+  },
+  "author": "Michael-Bryant Choa, Jenna Davis, Brendan Del Rosario, Jerry Mao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mbchoa/slick/issues"
+  },
+  "homepage": "https://github.com/mbchoa/slick#readme"
+}
