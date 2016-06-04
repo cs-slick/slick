@@ -19,11 +19,13 @@ describe('Server Routes Testing', function() {
       .get('/songQueue')
       .expect('Content-Type', /json/)
       .expect(function(res) {
-          const jsonData = res.body[0];
-          if (!('artist' in jsonData)) throw new Error("missing artist property");
-          if (!('songName' in jsonData)) throw new Error("missing songName property");
-          if (!('thumbnailUrl' in jsonData)) throw new Error("missing thumbnailUrl property");
-          if (!('embedHtml' in jsonData)) throw new Error("missing embedHtml property");
+          const jsonDataArr = res.body;
+          jsonDataArr.forEach(songData => {
+            if (!('artist' in songData)) throw new Error("missing artist property");
+            if (!('songName' in songData)) throw new Error("missing songName property");
+            if (!('thumbnailUrl' in songData)) throw new Error("missing thumbnailUrl property");
+            if (!('embedHtml' in songData)) throw new Error("missing embedHtml property");
+          });
       })
       .end(done);
   });

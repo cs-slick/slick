@@ -26,6 +26,12 @@ app.get('/songQueue', (req, res) => {
       songName: 'Famous',
       thumbnailUrl: 'http://kanyethegod.com',
       embedHtml: 'this is html string',
+    },
+    {
+      artist: 'Kanye',
+      songName: 'Famous',
+      thumbnailUrl: 'http://kanyethegod.com',
+      embedHtml: 'this is html string',
     }
   ]);
 });
