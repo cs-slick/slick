@@ -1,28 +1,21 @@
 'use strict';
 import React from 'react';
 
-const socket = io();
-
-
 class SongPlayer extends React.Component {
-
-
   componentDidMount() {
-    console.log(this.refs.audio.src);
+    // change clientId to your own client id
+    this.clientId = '0937b0d9c276c8ed417e401221c65323'
     this.refs.audio.addEventListener('playing', this.props.onPlay);
-    // socket.on('playSong', function(songUrl) {
-    //   socket.emit('playSong', songUrl)
-    // })
-    // this.refs.audio.addEventListener('play' SOMEFUNCTION)
+    this.refs.audio.addEventListener('pause', this.props.onPause);
   }
 
   render() {
-    const audioUrl = this.props.currSong.trackUrl + "?client_id=0937b0d9c276c8ed417e401221c65323";
+    // convenient way of passing audio url using SoundCloud API to <audio>
+    // element
+    const audioUrl = this.props.currSong.trackUrl + `?client_id=${this.clientId}`;
     return (
       <div className="song-player">
         <p>{this.props.currSong.artist}:  {this.props.currSong.songName}</p>
-
-
         <audio src={audioUrl}
           ref="audio"
           controls
@@ -30,10 +23,7 @@ class SongPlayer extends React.Component {
           />
       </div>
     )
-
   }
 }
-
-
 
 export default SongPlayer;
