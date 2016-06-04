@@ -14,7 +14,7 @@ class Slick extends React.Component {
     //initial state is an empty array
     this.state = {
       firstSong: {},
-      songInfo: []
+      songInfo: [],
     };
     this.newSongClick = this.newSongClick.bind(this);
     this.onPlay = this.onPlay.bind(this);
@@ -22,6 +22,8 @@ class Slick extends React.Component {
     this.handleServerPlayEvent = this.handleServerPlayEvent.bind(this);
     this.handleServerPlayCurrentSongEvent = this.handleServerPlayCurrentSongEvent.bind(this);
     this.handleServerPauseCurrentSongEvent = this.handleServerPauseCurrentSongEvent.bind(this);
+    this.onEnded = this.onEnded.bind(this);
+
   }
 
   newSongClick(i) {
@@ -54,6 +56,10 @@ class Slick extends React.Component {
   onPause(e) { socket.emit('pauseCurrent'); }
   handleServerPauseCurrentSongEvent () { this.audio.pause(); }
 
+  onEnded() {
+    this.updateSong(this.state.songInfo[0].trackUrl);
+  }
+  //doing async request in cdm
   componentDidMount() {
     //save reference to audio object in SongPlayer component
     this.audio = document.getElementsByTagName('audio')[0];
@@ -76,6 +82,7 @@ class Slick extends React.Component {
     socket.on('playSong', this.handleServerPlayEvent);
     socket.on('playCurrent', this.handleServerPlayCurrentSongEvent);
     socket.on('pauseCurrent', this.handleServerPauseCurrentSongEvent);
+    socket.on('songEnded', this.onEnded);
   }
 
   render() {
@@ -86,6 +93,7 @@ class Slick extends React.Component {
           currSong={this.state.firstSong || ''}
           onPlay={this.onPlay}
           onPause={this.onPause}
+          onEnded = {this.onEnded}
            />
         <SongQueue
           songInfo={this.state.songInfo}
