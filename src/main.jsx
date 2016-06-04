@@ -7,28 +7,29 @@ import SongPlayer from './components/SongPlayer.jsx'
 import Songs from './components/Songs.jsx'
 import ReactAudioPlayer from 'react-audio-player';
 
+const socket = io();
+
 class Slick extends React.Component {
   constructor() {
     //initial state is an empty array
     this.state = {
       firstSong: {},
-      songInfo: []
+      songInfo: [],
     };
     this.newSongClick = this.newSongClick.bind(this);
     this.onPlay = this.onPlay.bind(this);
     this.updateSong = this.updateSong.bind(this);
     this.handleServerPlayEvent = this.handleServerPlayEvent.bind(this);
+    this.handleServerPlayCurrentSongEvent = this.handleServerPlayCurrentSongEvent.bind(this);
+    this.handleServerPauseCurrentSongEvent = this.handleServerPauseCurrentSongEvent.bind(this);
+    this.onEnded = this.onEnded.bind(this);
+
   }
 
   newSongClick(i) {
-    // get song object from index
     const songObj = this.state.songInfo[i];
-
-    // get song url from object
     const songUrl = songObj.trackUrl;
-
-    // emit playSong event
-    this.socket.emit('playSong', songUrl);
+    socket.emit('playSong', songUrl);
   }
 
   handleServerPlayEvent(songUrl) {
@@ -49,13 +50,20 @@ class Slick extends React.Component {
     });
   }
 
-  onPlay() {
+  onPlay(e) { socket.emit('playCurrent'); }
+  handleServerPlayCurrentSongEvent () { this.audio.play(); }
 
+  onPause(e) { socket.emit('pauseCurrent'); }
+  handleServerPauseCurrentSongEvent () { this.audio.pause(); }
+
+  onEnded() {
+    this.updateSong(this.state.songInfo[0].trackUrl);
   }
-
   //doing async request in cdm
   componentDidMount() {
-    this.socket = io();
+    //save reference to audio object in SongPlayer component
+    this.audio = document.getElementsByTagName('audio')[0];
+
     let that = this;
     $.ajax({
       method: 'GET',
@@ -67,30 +75,34 @@ class Slick extends React.Component {
           firstSong: data.shift(),
           songInfo: data
         });
-        // listen for playSong emit events
-        this.socket.on('playSong', this.handleServerPlayEvent);
       }
     });
-  }
 
+    // listen for emit events from the server
+    socket.on('playSong', this.handleServerPlayEvent);
+    socket.on('playCurrent', this.handleServerPlayCurrentSongEvent);
+    socket.on('pauseCurrent', this.handleServerPauseCurrentSongEvent);
+    socket.on('songEnded', this.onEnded);
+  }
 
   render() {
     //songplayer gets an empty string as props before the component mounds
     return (
       <div>
         <SongPlayer
-          currSong = {this.state.firstSong || ''}
-          onPlay = {this.onPlay}
+          currSong={this.state.firstSong || ''}
+          onPlay={this.onPlay}
+          onPause={this.onPause}
+          onEnded = {this.onEnded}
            />
         <SongQueue
-          songInfo = {this.state.songInfo}
+          songInfo={this.state.songInfo}
           handleNewSongClick={this.newSongClick}
           />
       </div>
     )
   }
 }
-
 
 ReactDOM.render(
   <Slick />,
