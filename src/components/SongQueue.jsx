@@ -3,16 +3,16 @@ import React from 'react';
 import Songs from './Songs.jsx'
 
 
-const SongQueue = ({songInfo}) => {
+const SongQueue = (props) => {
   //iterating over json to make song divs
   const createList = () => {
-    let i = 0;
-    return songInfo.map(songz => {
+    return props.songInfo.map((songz, i) => {
       return (<Songs
-        key = {i++}
+        key = {i}
         artist={songz.artist}
         songName = {songz.songName}
         thumbnailUrl = {songz.thumbnailUrl}
+        handleNewSongClick={props.handleNewSongClick}
         />)
     })
   }

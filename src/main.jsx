@@ -11,7 +11,22 @@ import Songs from './components/Songs.jsx'
 class Slick extends React.Component {
   constructor() {
     //initial state is an empty array
-    this.state = {songInfo: []};
+    this.state = {
+      firstSong: {},
+      songInfo: []
+    };
+    this.newSongClick = this.newSongClick.bind(this);
+  }
+
+
+  newSongClick(e, i) {
+    let index = i.slice(i.indexOf('$') + 1);
+    let nextSong = this.state.songInfo.splice(index, 1);
+    console.log(nextSong)
+    this.setState({
+      firstSong: nextSong[0],
+      songInfo: this.state.songInfo
+    });
   }
 
   //doing async request in cdm
@@ -21,27 +36,32 @@ class Slick extends React.Component {
     //     return res.json()
     //   })
     //   .then(json => {
-    //     this.setState = {songInfo: json}
+    //     this.setState = {songInfo: json(slice(1))}
     //   });
 
     this.setState({
+      firstSong: {
+        'artist': 'first cool guy',
+        'songName': 'cool name',
+        'pictureUrl': 'rlycoolurl.jpg',
+      },
       songInfo: [{
-        artist: 'cool guy',
+        artist: 'second cool guy',
         songName: 'cool name',
         pictureUrl: 'rlycoolurl.jpg',
       },
       {
-        artist: 'cool guy',
+        artist: 'third cool guy',
         songName: 'cool name',
         pictureUrl: 'rlycoolurl.jpg',
       },
       {
-        artist: 'cool guy',
+        artist: 'fourth cool guy',
         songName: 'cool name',
         pictureUrl: 'rlycoolurl.jpg',
       },
       {
-        artist: 'cool guy',
+        artist: 'fifth cool guy',
         songName: 'cool name',
         pictureUrl: 'rlycoolurl.jpg',
       }
@@ -55,10 +75,11 @@ class Slick extends React.Component {
     return (
       <div>
         <SongPlayer
-          currSong = {this.state.songInfo[0] || ''}
+          currSong = {this.state.firstSong || ''}
            />
         <SongQueue
           songInfo = {this.state.songInfo}
+          handleNewSongClick={this.newSongClick}
           />
       </div>
     )
