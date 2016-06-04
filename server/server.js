@@ -28,6 +28,11 @@ io.on('connection', socket => {
     console.log('received songUrl: ', songUrl)
     io.emit('playSong', songUrl);
   });
+
+  socket.on('songEnded', (songUrl) => {
+    console.log('song has ended!')
+    io.emit('songEnded', songUrl);
+  });
 });
 
 module.exports = app;

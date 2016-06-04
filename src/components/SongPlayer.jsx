@@ -8,12 +8,8 @@ class SongPlayer extends React.Component {
 
 
   componentDidMount() {
-    console.log(this.refs.audio.src);
     this.refs.audio.addEventListener('playing', this.props.onPlay);
-    // socket.on('playSong', function(songUrl) {
-    //   socket.emit('playSong', songUrl)
-    // })
-    // this.refs.audio.addEventListener('play' SOMEFUNCTION)
+    this.refs.audio.addEventListener('ended', this.props.onEnded);
   }
 
   render() {
