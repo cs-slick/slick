@@ -21,6 +21,7 @@
     "angular": "^1.5.6",
     "angular-mocks": "^1.5.6",
     "angular-route": "^1.5.6",
-    "angular-material": "^1.0.9"
+    "angular-material": "^1.0.9",
+    "plangular": "^3.1.2"
   }
 }
