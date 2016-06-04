@@ -19,16 +19,11 @@ describe('Server Routes Testing', function() {
       .get('/songQueue')
       .expect('Content-Type', /json/)
       .expect(function(res) {
-          res.body.artist = 'Kanye';
-          res.body.songName = 'Famous';
-          res.body.thumbnailUrl = 'http://kanyethegod.com';
-          res.body.embedHtml = 'this is html string';
-      })
-      .expect(200, {
-        artist: 'Kanye',
-        songName: 'Famous',
-        thumbnailUrl: 'http://kanyethegod.com',
-        embedHtml: 'this is html string',
+          const jsonData = res.body[0];
+          if (!('artist' in jsonData)) throw new Error("missing artist property");
+          if (!('songName' in jsonData)) throw new Error("missing songName property");
+          if (!('thumbnailUrl' in jsonData)) throw new Error("missing thumbnailUrl property");
+          if (!('embedHtml' in jsonData)) throw new Error("missing embedHtml property");
       })
       .end(done);
   });
