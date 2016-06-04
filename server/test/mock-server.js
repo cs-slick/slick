@@ -5,7 +5,9 @@ var verboseServer = false; //Good for debugging the server
 
 verboseServer && console.log("ChatServer Started"); //If Verbose Debug
 io.sockets.on('connection', function (socket) {
-  
+  socket.on('client connect', user => {
+    io.sockets.emit('playSong', {user: 'Mike', action: 'play', data: 'kanyewest.mp3'});
+  });
   // verboseServer && console.log("New Connection"); //If Verbose Debug
   // var userName;
   // socket.on('connection name',function(user){
