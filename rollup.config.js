@@ -20,9 +20,7 @@ export default {
         'node_modules/fbjs/**',
         'node_modules/object-assign/**',
         'node_modules/react/**',
-        'node_modules/react-dom/**',
-        'node_modules/react-faux-dom/**',
-        'node_modules/react-d3-library/**'
+        'node_modules/react-dom/**'
       ]
     }),
     globals(),
