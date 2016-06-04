@@ -2,7 +2,6 @@
 import React from 'react';
 import Songs from './Songs.jsx'
 
-
 const SongQueue = (props) => {
   //iterating over json to make song divs
   const createList = () => {
