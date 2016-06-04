@@ -17,8 +17,8 @@ class Slick extends React.Component {
     this.newSongClick = this.newSongClick.bind(this);
     this.onPlay = this.onPlay.bind(this);
     this.updateSong = this.updateSong.bind(this);
+    this.handleServerPlayEvent = this.handleServerPlayEvent.bind(this);
   }
-
 
   newSongClick(i) {
     // get song object from index
@@ -52,8 +52,6 @@ class Slick extends React.Component {
   onPlay() {
 
   }
-
-
 
   //doing async request in cdm
   componentDidMount() {
@@ -91,7 +89,6 @@ class Slick extends React.Component {
       </div>
     )
   }
-
 }
 
 
