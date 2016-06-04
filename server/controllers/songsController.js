@@ -4,9 +4,9 @@ const request = require('request');
 // future feature: add search functionality on front end to query list of
 // song urls
 const SONGS = [
-  'https://soundcloud.com/iameden/billie-jean',
   'https://soundcloud.com/theleisurecollective/nobody-feat-goldlink',
   'https://soundcloud.com/caseyperez/tempting-changes-2pac-x-chloe',
+  'https://soundcloud.com/johncree/senior-skip-day-mac-miller',
   'https://soundcloud.com/andersonpaak/am-i-wrong-anderson-paak',
   'https://soundcloud.com/topdawgent/kendrick-lamar-backseat',
   'https://soundcloud.com/just-a-gent/backandforth',
@@ -23,6 +23,7 @@ songsDataController.getSongsData = (req, res, next) => {
     return new Promise((resolve, reject) => {
       const apiCall = `${API_ENDPOINT}?url=${url}${CLIENT_ID}`
       request(apiCall, (err, res, body) => {
+        console.log(body);
         resolve(body);
       });
     });

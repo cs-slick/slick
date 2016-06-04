@@ -7,6 +7,7 @@ class SongPlayer extends React.Component {
     this.clientId = '0937b0d9c276c8ed417e401221c65323'
     this.refs.audio.addEventListener('playing', this.props.onPlay);
     this.refs.audio.addEventListener('pause', this.props.onPause);
+    this.refs.audio.addEventListener('ended', this.props.onEnded);
   }
 
   render() {

@@ -29,11 +29,18 @@ io.on('connection', socket => {
     io.emit('playSong', songUrl);
   });
 
+
   // add playCurrent event handler
   socket.on('playCurrent', () => io.emit('playCurrent'));
 
   // add pauseCurrent event handler
   socket.on('pauseCurrent', () => io.emit('pauseCurrent'));
+
+  socket.on('songEnded', (songUrl) => {
+    console.log('song has ended!')
+    io.emit('songEnded', songUrl);
+  });
+
 });
 
 module.exports = app;
