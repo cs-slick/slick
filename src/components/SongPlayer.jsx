@@ -1,6 +1,5 @@
 'use strict';
 import React from 'react';
-import ReactAudioPlayer from 'react-audio-player';
 
 const socket = io();
 
