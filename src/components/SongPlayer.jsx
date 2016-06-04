@@ -6,10 +6,12 @@ import React from 'react';
 
 //will need to use react-songplayer
 const SongPlayer = (props) => {
- console.log(props.currSong)
+ const audioUrl = props.currSong.trackUrl + "?client_id=0937b0d9c276c8ed417e401221c65323";
+ console.log(typeof audioUrl);
   return (
     <div className="song-player">
-    <p>{props.currSong.artist} - {props.currSong.songName}</p>
+    <p>{props.currSong.artist}:  {props.currSong.songName}</p>
+    <audio src={audioUrl} controls autoPlay="true" />
     </div>
   )
 

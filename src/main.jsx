@@ -1,4 +1,5 @@
 'use strict';
+import 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SongQueue from './components/SongQueue.jsx';
@@ -31,41 +32,18 @@ class Slick extends React.Component {
 
   //doing async request in cdm
   componentDidMount() {
-    // fetch('URLHERE')
-    //   .then(res => {
-    //     return res.json()
-    //   })
-    //   .then(json => {
-    //     this.setState = {songInfo: json(slice(1))}
-    //   });
-
-    this.setState({
-      firstSong: {
-        'artist': 'first cool guy',
-        'songName': 'cool name',
-        'pictureUrl': 'rlycoolurl.jpg',
-      },
-      songInfo: [{
-        artist: 'second cool guy',
-        songName: 'cool name',
-        pictureUrl: 'rlycoolurl.jpg',
-      },
-      {
-        artist: 'third cool guy',
-        songName: 'cool name',
-        pictureUrl: 'rlycoolurl.jpg',
-      },
-      {
-        artist: 'fourth cool guy',
-        songName: 'cool name',
-        pictureUrl: 'rlycoolurl.jpg',
-      },
-      {
-        artist: 'fifth cool guy',
-        songName: 'cool name',
-        pictureUrl: 'rlycoolurl.jpg',
+    let that = this;
+    $.ajax({
+      method: 'GET',
+      url: "http://localhost:3000/songQueue",
+      contentType: 'application/json',
+      dataTyle: 'json',
+      success: data => {
+        that.setState({
+          firstSong: data.shift(),
+          songInfo: data
+        });
       }
-    ]
     });
   }
 
