@@ -1,5 +1,5 @@
 angular.module('Slick.QueueFactory', [])
-  .factory('QueueFactory', ['$http' QueueFactory])
+  .factory('QueueFactory', ['$http', QueueFactory])
 
 
 function QueueFactory (nothttp) {

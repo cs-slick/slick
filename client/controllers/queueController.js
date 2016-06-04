@@ -1,6 +1,6 @@
 angular.module('Slick.QueueController', [])
   .controller('QueueController', ['$scope','$http', QueueController])
-  .directive('QueuedSongs', function(songs) {
+  .directive('queued-songs', function(songs) {
     return {
       restrict: 'E',
       template: '<div ng-class="testing"> <img src"{{songs.thumbnailUrl}}"> <span ng-class="songs">{{songs.artist}}</span>{{songs.songName}}</div>'
