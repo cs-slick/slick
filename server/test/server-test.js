@@ -24,7 +24,7 @@ describe('Server Routes Testing', function() {
             if (!('artist' in songData)) throw new Error("missing artist property");
             if (!('songName' in songData)) throw new Error("missing songName property");
             if (!('thumbnailUrl' in songData)) throw new Error("missing thumbnailUrl property");
-            if (!('embedHtml' in songData)) throw new Error("missing embedHtml property");
+            if (!('trackUrl' in songData)) throw new Error("missing trackUrl property");
           });
       })
       .end(done);
