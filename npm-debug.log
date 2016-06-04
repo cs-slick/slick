@@ -1,0 +1,871 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'i',
+1 verbose cli   'react-soundplayer',
+1 verbose cli   '-S' ]
+2 info using npm@2.15.1
+3 info using node@v4.4.3
+4 verbose install initial load of /Users/jerrymao/slick/package.json
+5 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/bower/package.json
+6 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/buble-react-rollup-starter/package.json
+7 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/chai/package.json
+8 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/cors/package.json
+9 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/express/package.json
+10 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/gulp-rollup/package.json
+11 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/mocha/package.json
+12 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/node/package.json
+13 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/node-soundcloud/package.json
+14 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/react/package.json
+15 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/react-dom/package.json
+16 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/request/package.json
+17 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/rollup/package.json
+18 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/rollup-plugin-buble/package.json
+19 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/rollup-plugin-commonjs/package.json
+20 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/rollup-plugin-jsx/package.json
+21 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/rollup-plugin-node-globals/package.json
+22 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/rollup-plugin-node-resolve/package.json
+23 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/rollup-plugin-npm/package.json
+24 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/rollup-plugin-replace/package.json
+25 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/rollup-plugin-uglify/package.json
+26 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/snazzy/package.json
+27 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/socket.io/package.json
+28 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/standard/package.json
+29 verbose installManyTop reading scoped package data from /Users/jerrymao/slick/node_modules/supertest/package.json
+30 info package.json node@0.0.0 No description
+31 info package.json node@0.0.0 No repository field.
+32 info package.json node@0.0.0 No README data
+33 info package.json node@0.0.0 No license field.
+34 info package.json rollup-plugin-replace@1.1.0 No repository field.
+35 info package.json rollup-plugin-replace@1.1.0 No license field.
+36 verbose readDependencies loading dependencies from /Users/jerrymao/slick/package.json
+37 silly cache add args [ 'react-soundplayer', null ]
+38 verbose cache add spec react-soundplayer
+39 silly cache add parsed spec Result {
+39 silly cache add   raw: 'react-soundplayer',
+39 silly cache add   scope: null,
+39 silly cache add   name: 'react-soundplayer',
+39 silly cache add   rawSpec: '',
+39 silly cache add   spec: 'latest',
+39 silly cache add   type: 'tag' }
+40 silly addNamed react-soundplayer@latest
+41 verbose addNamed "latest" is being treated as a dist-tag for react-soundplayer
+42 info addNameTag [ 'react-soundplayer', 'latest' ]
+43 silly mapToRegistry name react-soundplayer
+44 silly mapToRegistry using default registry
+45 silly mapToRegistry registry https://registry.npmjs.org/
+46 silly mapToRegistry data Result {
+46 silly mapToRegistry   raw: 'react-soundplayer',
+46 silly mapToRegistry   scope: null,
+46 silly mapToRegistry   name: 'react-soundplayer',
+46 silly mapToRegistry   rawSpec: '',
+46 silly mapToRegistry   spec: 'latest',
+46 silly mapToRegistry   type: 'tag' }
+47 silly mapToRegistry uri https://registry.npmjs.org/react-soundplayer
+48 verbose addNameTag registry:https://registry.npmjs.org/react-soundplayer not in flight; fetching
+49 verbose request uri https://registry.npmjs.org/react-soundplayer
+50 verbose request no auth needed
+51 info attempt registry request try #1 at 12:42:10 AM
+52 verbose request id d58a2e3b55b16a39
+53 http request GET https://registry.npmjs.org/react-soundplayer
+54 http 200 https://registry.npmjs.org/react-soundplayer
+55 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+55 verbose headers   etag: '"BLGWXKB778D5HV3Z9MMI9X76P"',
+55 verbose headers   'content-type': 'application/json',
+55 verbose headers   'content-encoding': 'gzip',
+55 verbose headers   'cache-control': 'max-age=300',
+55 verbose headers   'content-length': '7118',
+55 verbose headers   'accept-ranges': 'bytes',
+55 verbose headers   date: 'Sat, 04 Jun 2016 07:42:07 GMT',
+55 verbose headers   via: '1.1 varnish',
+55 verbose headers   age: '0',
+55 verbose headers   connection: 'keep-alive',
+55 verbose headers   'x-served-by': 'cache-ord1722-ORD',
+55 verbose headers   'x-cache': 'MISS',
+55 verbose headers   'x-cache-hits': '0',
+55 verbose headers   'x-timer': 'S1465026126.665281,VS0,VE413',
+55 verbose headers   vary: 'Accept-Encoding' }
+56 silly get cb [ 200,
+56 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+56 silly get     etag: '"BLGWXKB778D5HV3Z9MMI9X76P"',
+56 silly get     'content-type': 'application/json',
+56 silly get     'content-encoding': 'gzip',
+56 silly get     'cache-control': 'max-age=300',
+56 silly get     'content-length': '7118',
+56 silly get     'accept-ranges': 'bytes',
+56 silly get     date: 'Sat, 04 Jun 2016 07:42:07 GMT',
+56 silly get     via: '1.1 varnish',
+56 silly get     age: '0',
+56 silly get     connection: 'keep-alive',
+56 silly get     'x-served-by': 'cache-ord1722-ORD',
+56 silly get     'x-cache': 'MISS',
+56 silly get     'x-cache-hits': '0',
+56 silly get     'x-timer': 'S1465026126.665281,VS0,VE413',
+56 silly get     vary: 'Accept-Encoding' } ]
+57 verbose get saving react-soundplayer to /Users/jerrymao/.npm/registry.npmjs.org/react-soundplayer/.cache.json
+58 verbose correctMkdir /Users/jerrymao/.npm correctMkdir not in flight; initializing
+59 silly addNameTag next cb for react-soundplayer with tag latest
+60 silly addNamed react-soundplayer@0.3.5
+61 verbose addNamed "0.3.5" is a plain semver version for react-soundplayer
+62 silly mapToRegistry name react-soundplayer
+63 silly mapToRegistry using default registry
+64 silly mapToRegistry registry https://registry.npmjs.org/
+65 silly mapToRegistry data Result {
+65 silly mapToRegistry   raw: 'react-soundplayer',
+65 silly mapToRegistry   scope: null,
+65 silly mapToRegistry   name: 'react-soundplayer',
+65 silly mapToRegistry   rawSpec: '',
+65 silly mapToRegistry   spec: 'latest',
+65 silly mapToRegistry   type: 'tag' }
+66 silly mapToRegistry uri https://registry.npmjs.org/react-soundplayer
+67 verbose addRemoteTarball https://registry.npmjs.org/react-soundplayer/-/react-soundplayer-0.3.5.tgz not in flight; adding
+68 verbose addRemoteTarball [ 'https://registry.npmjs.org/react-soundplayer/-/react-soundplayer-0.3.5.tgz',
+68 verbose addRemoteTarball   '124a4239dadae28febdc872c48215574d9d53c36' ]
+69 info retry fetch attempt 1 at 12:42:10 AM
+70 info attempt registry request try #1 at 12:42:10 AM
+71 http fetch GET https://registry.npmjs.org/react-soundplayer/-/react-soundplayer-0.3.5.tgz
+72 http fetch 200 https://registry.npmjs.org/react-soundplayer/-/react-soundplayer-0.3.5.tgz
+73 silly fetchAndShaCheck shasum 124a4239dadae28febdc872c48215574d9d53c36
+74 verbose addTmpTarball /var/folders/8m/d4r1h64d1cs7r2vkthjgrg300000gn/T/npm-32947-0d34bf85/registry.npmjs.org/react-soundplayer/-/react-soundplayer-0.3.5.tgz not in flight; adding
+75 verbose addTmpTarball already have metadata; skipping unpack for react-soundplayer@0.3.5
+76 verbose correctMkdir /Users/jerrymao/.npm correctMkdir not in flight; initializing
+77 silly cache afterAdd react-soundplayer@0.3.5
+78 verbose afterAdd /Users/jerrymao/.npm/react-soundplayer/0.3.5/package/package.json not in flight; writing
+79 verbose correctMkdir /Users/jerrymao/.npm correctMkdir not in flight; initializing
+80 verbose afterAdd /Users/jerrymao/.npm/react-soundplayer/0.3.5/package/package.json written
+81 silly install resolved [ { name: 'react-soundplayer',
+81 silly install resolved     version: '0.3.5',
+81 silly install resolved     description: 'Create custom SoundCloud players with React',
+81 silly install resolved     main: 'index.js',
+81 silly install resolved     directories: { example: 'examples' },
+81 silly install resolved     scripts:
+81 silly install resolved      { 'build-js': 'rm -rf ./lib && babel src -d lib --stage 0',
+81 silly install resolved        'build-css': 'rm -rf ./styles && mkdir styles && node .cssnext',
+81 silly install resolved        build: 'npm run build-js && npm run build-css',
+81 silly install resolved        prepublish: 'npm run build' },
+81 silly install resolved     keywords:
+81 silly install resolved      [ 'react',
+81 silly install resolved        'component',
+81 silly install resolved        'react-component',
+81 silly install resolved        'soundcloud',
+81 silly install resolved        'html5',
+81 silly install resolved        'audio' ],
+81 silly install resolved     author:
+81 silly install resolved      { name: 'Dmitri Voronianski',
+81 silly install resolved        email: 'dmitri.voronianski@gmail.com' },
+81 silly install resolved     license: 'MIT',
+81 silly install resolved     dependencies:
+81 silly install resolved      { classnames: '^2.1.2',
+81 silly install resolved        'object-assign': '^4.0.1',
+81 silly install resolved        'soundcloud-audio': '^1.0.0' },
+81 silly install resolved     peerDependencies: { react: '^0.14.x', 'react-dom': '^0.14.x' },
+81 silly install resolved     devDependencies:
+81 silly install resolved      { babel: '^5.1.2',
+81 silly install resolved        babelify: '^6.0.2',
+81 silly install resolved        basscss: '^6.0.0',
+81 silly install resolved        browserify: '^9.0.8',
+81 silly install resolved        cssnext: '^1.2.3',
+81 silly install resolved        envify: '^3.4.0',
+81 silly install resolved        'highlight.js': '^8.5.0',
+81 silly install resolved        watchify: '^2.4.0' },
+81 silly install resolved     gitHead: '3935112990fae23dedae2a3f7896f1c04ea33aa7',
+81 silly install resolved     _id: 'react-soundplayer@0.3.5',
+81 silly install resolved     _shasum: '124a4239dadae28febdc872c48215574d9d53c36',
+81 silly install resolved     _from: 'react-soundplayer@latest',
+81 silly install resolved     _npmVersion: '2.15.1',
+81 silly install resolved     _nodeVersion: '4.4.3',
+81 silly install resolved     _npmUser: { name: 'dmitri', email: 'dmitri.voronianski@gmail.com' },
+81 silly install resolved     dist:
+81 silly install resolved      { shasum: '124a4239dadae28febdc872c48215574d9d53c36',
+81 silly install resolved        tarball: 'https://registry.npmjs.org/react-soundplayer/-/react-soundplayer-0.3.5.tgz' },
+81 silly install resolved     maintainers: [ [Object] ],
+81 silly install resolved     _npmOperationalInternal:
+81 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+81 silly install resolved        tmp: 'tmp/react-soundplayer-0.3.5.tgz_1462268770323_0.6674276294652373' },
+81 silly install resolved     _resolved: 'https://registry.npmjs.org/react-soundplayer/-/react-soundplayer-0.3.5.tgz' } ]
+82 info install react-soundplayer@0.3.5 into /Users/jerrymao/slick
+83 info installOne react-soundplayer@0.3.5
+84 verbose installOne of react-soundplayer to /Users/jerrymao/slick not in flight; installing
+85 verbose correctMkdir /Users/jerrymao/.npm/_locks correctMkdir not in flight; initializing
+86 verbose lock using /Users/jerrymao/.npm/_locks/react-soundplayer-735052d734b60545.lock for /Users/jerrymao/slick/node_modules/react-soundplayer
+87 silly install write writing react-soundplayer 0.3.5 to /Users/jerrymao/slick/node_modules/react-soundplayer
+88 verbose unbuild node_modules/react-soundplayer
+89 silly gentlyRm /Users/jerrymao/slick/node_modules/react-soundplayer is being purged from base /Users/jerrymao/slick
+90 verbose gentlyRm don't care about contents; nuking /Users/jerrymao/slick/node_modules/react-soundplayer
+91 verbose tar unpack /Users/jerrymao/.npm/react-soundplayer/0.3.5/package.tgz
+92 verbose tar unpacking to /Users/jerrymao/slick/node_modules/react-soundplayer
+93 silly gentlyRm /Users/jerrymao/slick/node_modules/react-soundplayer is being purged
+94 verbose gentlyRm don't care about contents; nuking /Users/jerrymao/slick/node_modules/react-soundplayer
+95 silly gunzTarPerm modes [ '755', '644' ]
+96 silly gunzTarPerm extractEntry package.json
+97 silly gunzTarPerm extractEntry .npmignore
+98 silly gunzTarPerm extractEntry README.md
+99 silly gunzTarPerm extractEntry addons.js
+100 silly gunzTarPerm extractEntry components.js
+101 silly gunzTarPerm extractEntry index.js
+102 silly gunzTarPerm extractEntry .sublimelinterrc
+103 silly gunzTarPerm extractEntry .eslintrc
+104 silly gunzTarPerm extractEntry cssnext/buttons.css
+105 silly gunzTarPerm extractEntry cssnext/cover.css
+106 silly gunzTarPerm extractEntry cssnext/icons.css
+107 silly gunzTarPerm extractEntry cssnext/progress.css
+108 silly gunzTarPerm extractEntry .jshintignore
+109 silly gunzTarPerm extractEntry lib/addons/SoundPlayerContainer.js
+110 silly gunzTarPerm extractEntry lib/addons/index.js
+111 silly gunzTarPerm extractEntry lib/components/Cover.js
+112 silly gunzTarPerm extractEntry lib/components/Icons.js
+113 silly gunzTarPerm extractEntry lib/components/NextButton.js
+114 silly gunzTarPerm extractEntry lib/components/PlayButton.js
+115 silly gunzTarPerm extractEntry lib/components/PrevButton.js
+116 silly gunzTarPerm extractEntry lib/components/Progress.js
+117 silly gunzTarPerm extractEntry lib/components/Timer.js
+118 silly gunzTarPerm extractEntry lib/components/index.js
+119 silly gunzTarPerm extractEntry lib/utils/audioStore.js
+120 silly gunzTarPerm extractEntry .jshintrc
+121 silly gunzTarPerm extractEntry styles/buttons.css
+122 silly gunzTarPerm extractEntry styles/cover.css
+123 silly gunzTarPerm extractEntry styles/icons.css
+124 silly gunzTarPerm extractEntry styles/progress.css
+125 verbose write writing to /Users/jerrymao/slick/node_modules/react-soundplayer/package.json
+126 info preinstall react-soundplayer@0.3.5
+127 verbose readDependencies loading dependencies from /Users/jerrymao/slick/node_modules/react-soundplayer/package.json
+128 silly prepareForInstallMany adding classnames@^2.1.2 from react-soundplayer dependencies
+129 silly prepareForInstallMany adding object-assign@^4.0.1 from react-soundplayer dependencies
+130 silly prepareForInstallMany adding soundcloud-audio@^1.0.0 from react-soundplayer dependencies
+131 silly prepareForInstallMany adding react@^0.14.x from react-soundplayer peerDependencies
+132 silly prepareForInstallMany adding react-dom@^0.14.x from react-soundplayer peerDependencies
+133 warn peerDependencies The peer dependency react@^0.14.x included from react-soundplayer will no
+134 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+135 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+136 warn peerDependencies The peer dependency react-dom@^0.14.x included from react-soundplayer will no
+137 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+138 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+139 verbose readDependencies loading dependencies from /Users/jerrymao/slick/node_modules/react-soundplayer/package.json
+140 silly cache add args [ 'soundcloud-audio@^1.0.0', null ]
+141 verbose cache add spec soundcloud-audio@^1.0.0
+142 silly cache add parsed spec Result {
+142 silly cache add   raw: 'soundcloud-audio@^1.0.0',
+142 silly cache add   scope: null,
+142 silly cache add   name: 'soundcloud-audio',
+142 silly cache add   rawSpec: '^1.0.0',
+142 silly cache add   spec: '>=1.0.0 <2.0.0',
+142 silly cache add   type: 'range' }
+143 silly addNamed soundcloud-audio@>=1.0.0 <2.0.0
+144 verbose addNamed ">=1.0.0 <2.0.0" is a valid semver range for soundcloud-audio
+145 silly addNameRange { name: 'soundcloud-audio',
+145 silly addNameRange   range: '>=1.0.0 <2.0.0',
+145 silly addNameRange   hasData: false }
+146 silly mapToRegistry name soundcloud-audio
+147 silly mapToRegistry using default registry
+148 silly mapToRegistry registry https://registry.npmjs.org/
+149 silly mapToRegistry data Result {
+149 silly mapToRegistry   raw: 'soundcloud-audio',
+149 silly mapToRegistry   scope: null,
+149 silly mapToRegistry   name: 'soundcloud-audio',
+149 silly mapToRegistry   rawSpec: '',
+149 silly mapToRegistry   spec: 'latest',
+149 silly mapToRegistry   type: 'tag' }
+150 silly mapToRegistry uri https://registry.npmjs.org/soundcloud-audio
+151 verbose addNameRange registry:https://registry.npmjs.org/soundcloud-audio not in flight; fetching
+152 silly cache add args [ 'classnames@^2.1.2', null ]
+153 verbose cache add spec classnames@^2.1.2
+154 silly cache add parsed spec Result {
+154 silly cache add   raw: 'classnames@^2.1.2',
+154 silly cache add   scope: null,
+154 silly cache add   name: 'classnames',
+154 silly cache add   rawSpec: '^2.1.2',
+154 silly cache add   spec: '>=2.1.2 <3.0.0',
+154 silly cache add   type: 'range' }
+155 silly addNamed classnames@>=2.1.2 <3.0.0
+156 verbose addNamed ">=2.1.2 <3.0.0" is a valid semver range for classnames
+157 silly addNameRange { name: 'classnames', range: '>=2.1.2 <3.0.0', hasData: false }
+158 silly mapToRegistry name classnames
+159 silly mapToRegistry using default registry
+160 silly mapToRegistry registry https://registry.npmjs.org/
+161 silly mapToRegistry data Result {
+161 silly mapToRegistry   raw: 'classnames',
+161 silly mapToRegistry   scope: null,
+161 silly mapToRegistry   name: 'classnames',
+161 silly mapToRegistry   rawSpec: '',
+161 silly mapToRegistry   spec: 'latest',
+161 silly mapToRegistry   type: 'tag' }
+162 silly mapToRegistry uri https://registry.npmjs.org/classnames
+163 verbose addNameRange registry:https://registry.npmjs.org/classnames not in flight; fetching
+164 silly cache add args [ 'object-assign@^4.0.1', null ]
+165 verbose cache add spec object-assign@^4.0.1
+166 silly cache add parsed spec Result {
+166 silly cache add   raw: 'object-assign@^4.0.1',
+166 silly cache add   scope: null,
+166 silly cache add   name: 'object-assign',
+166 silly cache add   rawSpec: '^4.0.1',
+166 silly cache add   spec: '>=4.0.1 <5.0.0',
+166 silly cache add   type: 'range' }
+167 silly addNamed object-assign@>=4.0.1 <5.0.0
+168 verbose addNamed ">=4.0.1 <5.0.0" is a valid semver range for object-assign
+169 silly addNameRange { name: 'object-assign',
+169 silly addNameRange   range: '>=4.0.1 <5.0.0',
+169 silly addNameRange   hasData: false }
+170 silly mapToRegistry name object-assign
+171 silly mapToRegistry using default registry
+172 silly mapToRegistry registry https://registry.npmjs.org/
+173 silly mapToRegistry data Result {
+173 silly mapToRegistry   raw: 'object-assign',
+173 silly mapToRegistry   scope: null,
+173 silly mapToRegistry   name: 'object-assign',
+173 silly mapToRegistry   rawSpec: '',
+173 silly mapToRegistry   spec: 'latest',
+173 silly mapToRegistry   type: 'tag' }
+174 silly mapToRegistry uri https://registry.npmjs.org/object-assign
+175 verbose addNameRange registry:https://registry.npmjs.org/object-assign not in flight; fetching
+176 verbose request uri https://registry.npmjs.org/soundcloud-audio
+177 verbose request no auth needed
+178 info attempt registry request try #1 at 12:42:11 AM
+179 http request GET https://registry.npmjs.org/soundcloud-audio
+180 verbose request uri https://registry.npmjs.org/classnames
+181 verbose request no auth needed
+182 info attempt registry request try #1 at 12:42:11 AM
+183 http request GET https://registry.npmjs.org/classnames
+184 verbose request uri https://registry.npmjs.org/object-assign
+185 verbose request no auth needed
+186 info attempt registry request try #1 at 12:42:11 AM
+187 verbose etag "4082CE2TL2G1PY6BRZ95CCKX5"
+188 http request GET https://registry.npmjs.org/object-assign
+189 http 304 https://registry.npmjs.org/object-assign
+190 verbose headers { date: 'Sat, 04 Jun 2016 07:42:08 GMT',
+190 verbose headers   via: '1.1 varnish',
+190 verbose headers   'cache-control': 'max-age=300',
+190 verbose headers   etag: '"4082CE2TL2G1PY6BRZ95CCKX5"',
+190 verbose headers   age: '208',
+190 verbose headers   connection: 'keep-alive',
+190 verbose headers   'x-served-by': 'cache-ord1749-ORD',
+190 verbose headers   'x-cache': 'HIT',
+190 verbose headers   'x-cache-hits': '1',
+190 verbose headers   'x-timer': 'S1465026128.027195,VS0,VE0',
+190 verbose headers   vary: 'Accept-Encoding' }
+191 silly get cb [ 304,
+191 silly get   { date: 'Sat, 04 Jun 2016 07:42:08 GMT',
+191 silly get     via: '1.1 varnish',
+191 silly get     'cache-control': 'max-age=300',
+191 silly get     etag: '"4082CE2TL2G1PY6BRZ95CCKX5"',
+191 silly get     age: '208',
+191 silly get     connection: 'keep-alive',
+191 silly get     'x-served-by': 'cache-ord1749-ORD',
+191 silly get     'x-cache': 'HIT',
+191 silly get     'x-cache-hits': '1',
+191 silly get     'x-timer': 'S1465026128.027195,VS0,VE0',
+191 silly get     vary: 'Accept-Encoding' } ]
+192 verbose etag https://registry.npmjs.org/object-assign from cache
+193 verbose get saving object-assign to /Users/jerrymao/.npm/registry.npmjs.org/object-assign/.cache.json
+194 verbose correctMkdir /Users/jerrymao/.npm correctMkdir not in flight; initializing
+195 silly addNameRange number 2 { name: 'object-assign', range: '>=4.0.1 <5.0.0', hasData: true }
+196 silly addNameRange versions [ 'object-assign',
+196 silly addNameRange   [ '0.1.0',
+196 silly addNameRange     '0.1.1',
+196 silly addNameRange     '0.1.2',
+196 silly addNameRange     '0.2.0',
+196 silly addNameRange     '0.2.1',
+196 silly addNameRange     '0.2.2',
+196 silly addNameRange     '0.3.0',
+196 silly addNameRange     '0.3.1',
+196 silly addNameRange     '0.4.0',
+196 silly addNameRange     '1.0.0',
+196 silly addNameRange     '2.0.0',
+196 silly addNameRange     '3.0.0',
+196 silly addNameRange     '2.1.1',
+196 silly addNameRange     '4.0.0',
+196 silly addNameRange     '4.0.1',
+196 silly addNameRange     '4.1.0' ] ]
+197 silly addNamed object-assign@4.1.0
+198 verbose addNamed "4.1.0" is a plain semver version for object-assign
+199 silly cache afterAdd object-assign@4.1.0
+200 verbose afterAdd /Users/jerrymao/.npm/object-assign/4.1.0/package/package.json not in flight; writing
+201 verbose correctMkdir /Users/jerrymao/.npm correctMkdir not in flight; initializing
+202 verbose afterAdd /Users/jerrymao/.npm/object-assign/4.1.0/package/package.json written
+203 http 200 https://registry.npmjs.org/classnames
+204 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+204 verbose headers   etag: '"GKEWEI3UBBLX2SBRPXBDLZLL"',
+204 verbose headers   'content-type': 'application/json',
+204 verbose headers   'content-encoding': 'gzip',
+204 verbose headers   'cache-control': 'max-age=300',
+204 verbose headers   'content-length': '6670',
+204 verbose headers   'accept-ranges': 'bytes',
+204 verbose headers   date: 'Sat, 04 Jun 2016 07:42:08 GMT',
+204 verbose headers   via: '1.1 varnish',
+204 verbose headers   age: '0',
+204 verbose headers   connection: 'keep-alive',
+204 verbose headers   'x-served-by': 'cache-ord1737-ORD',
+204 verbose headers   'x-cache': 'HIT',
+204 verbose headers   'x-cache-hits': '1',
+204 verbose headers   'x-timer': 'S1465026128.021885,VS0,VE128',
+204 verbose headers   vary: 'Accept-Encoding' }
+205 silly get cb [ 200,
+205 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+205 silly get     etag: '"GKEWEI3UBBLX2SBRPXBDLZLL"',
+205 silly get     'content-type': 'application/json',
+205 silly get     'content-encoding': 'gzip',
+205 silly get     'cache-control': 'max-age=300',
+205 silly get     'content-length': '6670',
+205 silly get     'accept-ranges': 'bytes',
+205 silly get     date: 'Sat, 04 Jun 2016 07:42:08 GMT',
+205 silly get     via: '1.1 varnish',
+205 silly get     age: '0',
+205 silly get     connection: 'keep-alive',
+205 silly get     'x-served-by': 'cache-ord1737-ORD',
+205 silly get     'x-cache': 'HIT',
+205 silly get     'x-cache-hits': '1',
+205 silly get     'x-timer': 'S1465026128.021885,VS0,VE128',
+205 silly get     vary: 'Accept-Encoding' } ]
+206 verbose get saving classnames to /Users/jerrymao/.npm/registry.npmjs.org/classnames/.cache.json
+207 verbose correctMkdir /Users/jerrymao/.npm correctMkdir not in flight; initializing
+208 silly addNameRange number 2 { name: 'classnames', range: '>=2.1.2 <3.0.0', hasData: true }
+209 silly addNameRange versions [ 'classnames',
+209 silly addNameRange   [ '1.0.0',
+209 silly addNameRange     '1.1.0',
+209 silly addNameRange     '1.1.1',
+209 silly addNameRange     '1.1.2',
+209 silly addNameRange     '1.1.3',
+209 silly addNameRange     '1.1.4',
+209 silly addNameRange     '1.2.0',
+209 silly addNameRange     '1.2.1',
+209 silly addNameRange     '1.2.2',
+209 silly addNameRange     '2.0.0',
+209 silly addNameRange     '2.1.0',
+209 silly addNameRange     '2.1.1',
+209 silly addNameRange     '2.1.2',
+209 silly addNameRange     '2.1.3',
+209 silly addNameRange     '2.1.4',
+209 silly addNameRange     '2.1.5',
+209 silly addNameRange     '2.2.0',
+209 silly addNameRange     '2.2.1',
+209 silly addNameRange     '2.2.2',
+209 silly addNameRange     '2.2.3',
+209 silly addNameRange     '2.2.4',
+209 silly addNameRange     '2.2.5' ] ]
+210 silly addNamed classnames@2.2.5
+211 verbose addNamed "2.2.5" is a plain semver version for classnames
+212 silly mapToRegistry name classnames
+213 silly mapToRegistry using default registry
+214 silly mapToRegistry registry https://registry.npmjs.org/
+215 silly mapToRegistry data Result {
+215 silly mapToRegistry   raw: 'classnames',
+215 silly mapToRegistry   scope: null,
+215 silly mapToRegistry   name: 'classnames',
+215 silly mapToRegistry   rawSpec: '',
+215 silly mapToRegistry   spec: 'latest',
+215 silly mapToRegistry   type: 'tag' }
+216 silly mapToRegistry uri https://registry.npmjs.org/classnames
+217 verbose addRemoteTarball https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz not in flight; adding
+218 verbose addRemoteTarball [ 'https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz',
+218 verbose addRemoteTarball   'fb3801d453467649ef3603c7d61a02bd129bde6d' ]
+219 info retry fetch attempt 1 at 12:42:11 AM
+220 info attempt registry request try #1 at 12:42:11 AM
+221 http fetch GET https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz
+222 http fetch 200 https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz
+223 silly fetchAndShaCheck shasum fb3801d453467649ef3603c7d61a02bd129bde6d
+224 verbose addTmpTarball /var/folders/8m/d4r1h64d1cs7r2vkthjgrg300000gn/T/npm-32947-0d34bf85/registry.npmjs.org/classnames/-/classnames-2.2.5.tgz not in flight; adding
+225 verbose addTmpTarball already have metadata; skipping unpack for classnames@2.2.5
+226 verbose correctMkdir /Users/jerrymao/.npm correctMkdir not in flight; initializing
+227 silly cache afterAdd classnames@2.2.5
+228 verbose afterAdd /Users/jerrymao/.npm/classnames/2.2.5/package/package.json not in flight; writing
+229 verbose correctMkdir /Users/jerrymao/.npm correctMkdir not in flight; initializing
+230 verbose afterAdd /Users/jerrymao/.npm/classnames/2.2.5/package/package.json written
+231 http 200 https://registry.npmjs.org/soundcloud-audio
+232 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+232 verbose headers   etag: '"7XS9BTXPJT4819XTH026N0Y50"',
+232 verbose headers   'content-type': 'application/json',
+232 verbose headers   'content-encoding': 'gzip',
+232 verbose headers   'cache-control': 'max-age=300',
+232 verbose headers   'content-length': '5351',
+232 verbose headers   'accept-ranges': 'bytes',
+232 verbose headers   date: 'Sat, 04 Jun 2016 07:42:08 GMT',
+232 verbose headers   via: '1.1 varnish',
+232 verbose headers   age: '0',
+232 verbose headers   connection: 'keep-alive',
+232 verbose headers   'x-served-by': 'cache-ord1722-ORD',
+232 verbose headers   'x-cache': 'MISS',
+232 verbose headers   'x-cache-hits': '0',
+232 verbose headers   'x-timer': 'S1465026127.891543,VS0,VE401',
+232 verbose headers   vary: 'Accept-Encoding' }
+233 silly get cb [ 200,
+233 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+233 silly get     etag: '"7XS9BTXPJT4819XTH026N0Y50"',
+233 silly get     'content-type': 'application/json',
+233 silly get     'content-encoding': 'gzip',
+233 silly get     'cache-control': 'max-age=300',
+233 silly get     'content-length': '5351',
+233 silly get     'accept-ranges': 'bytes',
+233 silly get     date: 'Sat, 04 Jun 2016 07:42:08 GMT',
+233 silly get     via: '1.1 varnish',
+233 silly get     age: '0',
+233 silly get     connection: 'keep-alive',
+233 silly get     'x-served-by': 'cache-ord1722-ORD',
+233 silly get     'x-cache': 'MISS',
+233 silly get     'x-cache-hits': '0',
+233 silly get     'x-timer': 'S1465026127.891543,VS0,VE401',
+233 silly get     vary: 'Accept-Encoding' } ]
+234 verbose get saving soundcloud-audio to /Users/jerrymao/.npm/registry.npmjs.org/soundcloud-audio/.cache.json
+235 verbose correctMkdir /Users/jerrymao/.npm correctMkdir not in flight; initializing
+236 silly addNameRange number 2 { name: 'soundcloud-audio',
+236 silly addNameRange   range: '>=1.0.0 <2.0.0',
+236 silly addNameRange   hasData: true }
+237 silly addNameRange versions [ 'soundcloud-audio',
+237 silly addNameRange   [ '0.1.0',
+237 silly addNameRange     '0.1.1',
+237 silly addNameRange     '0.1.2',
+237 silly addNameRange     '0.1.3',
+237 silly addNameRange     '0.1.4',
+237 silly addNameRange     '0.1.5',
+237 silly addNameRange     '0.1.6',
+237 silly addNameRange     '0.1.7',
+237 silly addNameRange     '1.0.0' ] ]
+238 silly addNamed soundcloud-audio@1.0.0
+239 verbose addNamed "1.0.0" is a plain semver version for soundcloud-audio
+240 silly mapToRegistry name soundcloud-audio
+241 silly mapToRegistry using default registry
+242 silly mapToRegistry registry https://registry.npmjs.org/
+243 silly mapToRegistry data Result {
+243 silly mapToRegistry   raw: 'soundcloud-audio',
+243 silly mapToRegistry   scope: null,
+243 silly mapToRegistry   name: 'soundcloud-audio',
+243 silly mapToRegistry   rawSpec: '',
+243 silly mapToRegistry   spec: 'latest',
+243 silly mapToRegistry   type: 'tag' }
+244 silly mapToRegistry uri https://registry.npmjs.org/soundcloud-audio
+245 verbose addRemoteTarball https://registry.npmjs.org/soundcloud-audio/-/soundcloud-audio-1.0.0.tgz not in flight; adding
+246 verbose addRemoteTarball [ 'https://registry.npmjs.org/soundcloud-audio/-/soundcloud-audio-1.0.0.tgz',
+246 verbose addRemoteTarball   'e4a7eb5e2065531d5acdc059429f50f52eeb792a' ]
+247 info retry fetch attempt 1 at 12:42:12 AM
+248 info attempt registry request try #1 at 12:42:12 AM
+249 http fetch GET https://registry.npmjs.org/soundcloud-audio/-/soundcloud-audio-1.0.0.tgz
+250 http fetch 200 https://registry.npmjs.org/soundcloud-audio/-/soundcloud-audio-1.0.0.tgz
+251 silly fetchAndShaCheck shasum e4a7eb5e2065531d5acdc059429f50f52eeb792a
+252 verbose addTmpTarball /var/folders/8m/d4r1h64d1cs7r2vkthjgrg300000gn/T/npm-32947-0d34bf85/registry.npmjs.org/soundcloud-audio/-/soundcloud-audio-1.0.0.tgz not in flight; adding
+253 verbose addTmpTarball already have metadata; skipping unpack for soundcloud-audio@1.0.0
+254 verbose correctMkdir /Users/jerrymao/.npm correctMkdir not in flight; initializing
+255 silly cache afterAdd soundcloud-audio@1.0.0
+256 verbose afterAdd /Users/jerrymao/.npm/soundcloud-audio/1.0.0/package/package.json not in flight; writing
+257 verbose correctMkdir /Users/jerrymao/.npm correctMkdir not in flight; initializing
+258 verbose afterAdd /Users/jerrymao/.npm/soundcloud-audio/1.0.0/package/package.json written
+259 silly install resolved [ { name: 'object-assign',
+259 silly install resolved     version: '4.1.0',
+259 silly install resolved     description: 'ES2015 Object.assign() ponyfill',
+259 silly install resolved     license: 'MIT',
+259 silly install resolved     repository:
+259 silly install resolved      { type: 'git',
+259 silly install resolved        url: 'git+https://github.com/sindresorhus/object-assign.git' },
+259 silly install resolved     author:
+259 silly install resolved      { name: 'Sindre Sorhus',
+259 silly install resolved        email: 'sindresorhus@gmail.com',
+259 silly install resolved        url: 'sindresorhus.com' },
+259 silly install resolved     engines: { node: '>=0.10.0' },
+259 silly install resolved     scripts: { test: 'xo && mocha', bench: 'matcha bench.js' },
+259 silly install resolved     files: [ 'index.js' ],
+259 silly install resolved     keywords:
+259 silly install resolved      [ 'object',
+259 silly install resolved        'assign',
+259 silly install resolved        'extend',
+259 silly install resolved        'properties',
+259 silly install resolved        'es2015',
+259 silly install resolved        'ecmascript',
+259 silly install resolved        'harmony',
+259 silly install resolved        'ponyfill',
+259 silly install resolved        'prollyfill',
+259 silly install resolved        'polyfill',
+259 silly install resolved        'shim',
+259 silly install resolved        'browser' ],
+259 silly install resolved     devDependencies: { lodash: '^4.8.2', matcha: '^0.7.0', mocha: '*', xo: '*' },
+259 silly install resolved     gitHead: '72fe21c86911758f3342fdf41c2a57860d5829bc',
+259 silly install resolved     bugs: { url: 'https://github.com/sindresorhus/object-assign/issues' },
+259 silly install resolved     homepage: 'https://github.com/sindresorhus/object-assign#readme',
+259 silly install resolved     _id: 'object-assign@4.1.0',
+259 silly install resolved     _shasum: '7a3b3d0e98063d43f4c03f2e8ae6cd51a86883a0',
+259 silly install resolved     _from: 'object-assign@>=4.0.1 <5.0.0',
+259 silly install resolved     _npmVersion: '2.14.19',
+259 silly install resolved     _nodeVersion: '4.1.0',
+259 silly install resolved     _npmUser: { name: 'spicyj', email: 'ben@benalpert.com' },
+259 silly install resolved     maintainers: [ [Object], [Object] ],
+259 silly install resolved     dist:
+259 silly install resolved      { shasum: '7a3b3d0e98063d43f4c03f2e8ae6cd51a86883a0',
+259 silly install resolved        tarball: 'https://registry.npmjs.org/object-assign/-/object-assign-4.1.0.tgz' },
+259 silly install resolved     _npmOperationalInternal:
+259 silly install resolved      { host: 'packages-16-east.internal.npmjs.com',
+259 silly install resolved        tmp: 'tmp/object-assign-4.1.0.tgz_1462212593641_0.3332549517508596' },
+259 silly install resolved     directories: {},
+259 silly install resolved     _resolved: 'https://registry.npmjs.org/object-assign/-/object-assign-4.1.0.tgz',
+259 silly install resolved     readme: 'ERROR: No README data found!' },
+259 silly install resolved   { name: 'classnames',
+259 silly install resolved     version: '2.2.5',
+259 silly install resolved     description: 'A simple utility for conditionally joining classNames together',
+259 silly install resolved     main: 'index.js',
+259 silly install resolved     author: { name: 'Jed Watson' },
+259 silly install resolved     license: 'MIT',
+259 silly install resolved     repository:
+259 silly install resolved      { type: 'git',
+259 silly install resolved        url: 'git+https://github.com/JedWatson/classnames.git' },
+259 silly install resolved     scripts:
+259 silly install resolved      { benchmarks: 'node ./benchmarks/run',
+259 silly install resolved        unit: 'mocha tests/*.js',
+259 silly install resolved        test: 'npm run unit' },
+259 silly install resolved     keywords:
+259 silly install resolved      [ 'react',
+259 silly install resolved        'css',
+259 silly install resolved        'classes',
+259 silly install resolved        'classname',
+259 silly install resolved        'classnames',
+259 silly install resolved        'util',
+259 silly install resolved        'utility' ],
+259 silly install resolved     devDependencies: { benchmark: '^1.0.0', mocha: '^2.1.0' },
+259 silly install resolved     gitHead: '1fc62c0490bfc7d67a1178bbb60897cfa0580c7b',
+259 silly install resolved     bugs: { url: 'https://github.com/JedWatson/classnames/issues' },
+259 silly install resolved     homepage: 'https://github.com/JedWatson/classnames#readme',
+259 silly install resolved     _id: 'classnames@2.2.5',
+259 silly install resolved     _shasum: 'fb3801d453467649ef3603c7d61a02bd129bde6d',
+259 silly install resolved     _from: 'classnames@>=2.1.2 <3.0.0',
+259 silly install resolved     _npmVersion: '3.3.6',
+259 silly install resolved     _nodeVersion: '5.0.0',
+259 silly install resolved     _npmUser: { name: 'jedwatson', email: 'jed.watson@me.com' },
+259 silly install resolved     maintainers: [ [Object] ],
+259 silly install resolved     dist:
+259 silly install resolved      { shasum: 'fb3801d453467649ef3603c7d61a02bd129bde6d',
+259 silly install resolved        tarball: 'https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz' },
+259 silly install resolved     _npmOperationalInternal:
+259 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+259 silly install resolved        tmp: 'tmp/classnames-2.2.5.tgz_1462195436082_0.17347457958385348' },
+259 silly install resolved     directories: {},
+259 silly install resolved     _resolved: 'https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz' },
+259 silly install resolved   { name: 'soundcloud-audio',
+259 silly install resolved     version: '1.0.0',
+259 silly install resolved     description: 'Play SoundCloud tracks and playslists in modern browsers with HTML5 Audio API',
+259 silly install resolved     main: 'index.js',
+259 silly install resolved     directories: { example: 'example' },
+259 silly install resolved     scripts:
+259 silly install resolved      { start: 'watchify . -s SoundCloudAudio -o dist/soundcloud-audio.js -v -d',
+259 silly install resolved        build: 'browserify . -s SoundCloudAudio | uglifyjs -cm > dist/soundcloud-audio.min.js',
+259 silly install resolved        test: './node_modules/karma/bin/karma start --single-run --browsers Chrome' },
+259 silly install resolved     repository:
+259 silly install resolved      { type: 'git',
+259 silly install resolved        url: 'git+https://github.com/voronianski/soundcloud-audio.js.git' },
+259 silly install resolved     keywords:
+259 silly install resolved      [ 'soundcloud',
+259 silly install resolved        'html5',
+259 silly install resolved        'browser',
+259 silly install resolved        'audio',
+259 silly install resolved        'playlists',
+259 silly install resolved        'tracks',
+259 silly install resolved        'api',
+259 silly install resolved        'waveform',
+259 silly install resolved        'sdk' ],
+259 silly install resolved     author:
+259 silly install resolved      { name: 'Dmitri Voronianski',
+259 silly install resolved        email: 'dmitri.voronianski@gmail.com' },
+259 silly install resolved     license: 'MIT',
+259 silly install resolved     devDependencies:
+259 silly install resolved      { browserify: '^8.1.0',
+259 silly install resolved        chai: '^3.3.0',
+259 silly install resolved        'jasmine-core': '^2.1.3',
+259 silly install resolved        karma: '^0.12.31',
+259 silly install resolved        'karma-chai': '^0.1.0',
+259 silly install resolved        'karma-chrome-launcher': '^0.1.7',
+259 silly install resolved        'karma-mocha': '^0.2.0',
+259 silly install resolved        mocha: '^2.3.3',
+259 silly install resolved        'uglify-js': '^2.4.16',
+259 silly install resolved        watchify: '^2.2.1' },
+259 silly install resolved     dependencies: {},
+259 silly install resolved     gitHead: 'd8bc2ae520306ad1cc4f6850fefe7b3b587c5630',
+259 silly install resolved     bugs: { url: 'https://github.com/voronianski/soundcloud-audio.js/issues' },
+259 silly install resolved     homepage: 'https://github.com/voronianski/soundcloud-audio.js#readme',
+259 silly install resolved     _id: 'soundcloud-audio@1.0.0',
+259 silly install resolved     _shasum: 'e4a7eb5e2065531d5acdc059429f50f52eeb792a',
+259 silly install resolved     _from: 'soundcloud-audio@>=1.0.0 <2.0.0',
+259 silly install resolved     _npmVersion: '2.11.3',
+259 silly install resolved     _nodeVersion: '0.12.7',
+259 silly install resolved     _npmUser: { name: 'dmitri', email: 'dmitri.voronianski@gmail.com' },
+259 silly install resolved     maintainers: [ [Object] ],
+259 silly install resolved     dist:
+259 silly install resolved      { shasum: 'e4a7eb5e2065531d5acdc059429f50f52eeb792a',
+259 silly install resolved        tarball: 'https://registry.npmjs.org/soundcloud-audio/-/soundcloud-audio-1.0.0.tgz' },
+259 silly install resolved     _npmOperationalInternal:
+259 silly install resolved      { host: 'packages-5-east.internal.npmjs.com',
+259 silly install resolved        tmp: 'tmp/soundcloud-audio-1.0.0.tgz_1456818586402_0.20324886892922223' },
+259 silly install resolved     _resolved: 'https://registry.npmjs.org/soundcloud-audio/-/soundcloud-audio-1.0.0.tgz' } ]
+260 info install object-assign@4.1.0 into /Users/jerrymao/slick/node_modules/react-soundplayer
+261 info install classnames@2.2.5 into /Users/jerrymao/slick/node_modules/react-soundplayer
+262 info install soundcloud-audio@1.0.0 into /Users/jerrymao/slick/node_modules/react-soundplayer
+263 info installOne object-assign@4.1.0
+264 verbose installOne of object-assign to /Users/jerrymao/slick/node_modules/react-soundplayer not in flight; installing
+265 verbose correctMkdir /Users/jerrymao/.npm/_locks correctMkdir not in flight; initializing
+266 info installOne classnames@2.2.5
+267 verbose installOne of classnames to /Users/jerrymao/slick/node_modules/react-soundplayer not in flight; installing
+268 verbose correctMkdir /Users/jerrymao/.npm/_locks correctMkdir not in flight; initializing
+269 info installOne soundcloud-audio@1.0.0
+270 verbose installOne of soundcloud-audio to /Users/jerrymao/slick/node_modules/react-soundplayer not in flight; installing
+271 verbose correctMkdir /Users/jerrymao/.npm/_locks correctMkdir not in flight; initializing
+272 verbose lock using /Users/jerrymao/.npm/_locks/object-assign-ee902b73e3f707a3.lock for /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/object-assign
+273 verbose lock using /Users/jerrymao/.npm/_locks/classnames-cf2bc98045cb8aca.lock for /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/classnames
+274 silly install write writing object-assign 4.1.0 to /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/object-assign
+275 verbose lock using /Users/jerrymao/.npm/_locks/soundcloud-audio-0a6641b858388016.lock for /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/soundcloud-audio
+276 silly install write writing classnames 2.2.5 to /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/classnames
+277 silly install write writing soundcloud-audio 1.0.0 to /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/soundcloud-audio
+278 verbose unbuild node_modules/react-soundplayer/node_modules/object-assign
+279 verbose unbuild node_modules/react-soundplayer/node_modules/classnames
+280 verbose unbuild node_modules/react-soundplayer/node_modules/soundcloud-audio
+281 silly gentlyRm /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/object-assign is being purged from base /Users/jerrymao/slick
+282 verbose gentlyRm don't care about contents; nuking /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/object-assign
+283 verbose tar unpack /Users/jerrymao/.npm/object-assign/4.1.0/package.tgz
+284 verbose tar unpacking to /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/object-assign
+285 silly gentlyRm /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/object-assign is being purged
+286 verbose gentlyRm don't care about contents; nuking /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/object-assign
+287 silly gentlyRm /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/classnames is being purged from base /Users/jerrymao/slick
+288 verbose gentlyRm don't care about contents; nuking /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/classnames
+289 silly gentlyRm /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/soundcloud-audio is being purged from base /Users/jerrymao/slick
+290 verbose gentlyRm don't care about contents; nuking /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/soundcloud-audio
+291 silly gunzTarPerm modes [ '755', '644' ]
+292 verbose tar unpack /Users/jerrymao/.npm/classnames/2.2.5/package.tgz
+293 verbose tar unpacking to /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/classnames
+294 silly gentlyRm /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/classnames is being purged
+295 verbose gentlyRm don't care about contents; nuking /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/classnames
+296 verbose tar unpack /Users/jerrymao/.npm/soundcloud-audio/1.0.0/package.tgz
+297 verbose tar unpacking to /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/soundcloud-audio
+298 silly gentlyRm /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/soundcloud-audio is being purged
+299 verbose gentlyRm don't care about contents; nuking /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/soundcloud-audio
+300 silly gunzTarPerm modes [ '755', '644' ]
+301 silly gunzTarPerm modes [ '755', '644' ]
+302 silly gunzTarPerm extractEntry package.json
+303 silly gunzTarPerm extractEntry package.json
+304 silly gunzTarPerm extractEntry package.json
+305 silly gunzTarPerm extractEntry index.js
+306 silly gunzTarPerm extractEntry license
+307 silly gunzTarPerm extractEntry README.md
+308 silly gunzTarPerm extractEntry LICENSE
+309 silly gunzTarPerm extractEntry .npmignore
+310 silly gunzTarPerm modified mode [ '.npmignore', 436, 420 ]
+311 silly gunzTarPerm extractEntry README.md
+312 silly gunzTarPerm extractEntry readme.md
+313 silly gunzTarPerm extractEntry bind.js
+314 silly gunzTarPerm extractEntry dedupe.js
+315 silly gunzTarPerm extractEntry index.js
+316 silly gunzTarPerm extractEntry bower.json
+317 silly gunzTarPerm extractEntry .eslintrc
+318 silly gunzTarPerm extractEntry .jshintrc
+319 silly gunzTarPerm modified mode [ '.jshintrc', 436, 420 ]
+320 silly gunzTarPerm extractEntry .editorconfig
+321 silly gunzTarPerm modified mode [ '.editorconfig', 436, 420 ]
+322 silly gunzTarPerm extractEntry .travis.yml
+323 silly gunzTarPerm modified mode [ '.travis.yml', 436, 420 ]
+324 silly gunzTarPerm extractEntry index.js
+325 silly gunzTarPerm extractEntry CONTRIBUTING.md
+326 silly gunzTarPerm extractEntry bower.json
+327 silly gunzTarPerm extractEntry HISTORY.md
+328 verbose write writing to /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/object-assign/package.json
+329 info preinstall object-assign@4.1.0
+330 verbose readDependencies loading dependencies from /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/object-assign/package.json
+331 verbose readDependencies loading dependencies from /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/object-assign/package.json
+332 silly install resolved []
+333 verbose about to build /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/object-assign
+334 info build /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/object-assign
+335 info linkStuff object-assign@4.1.0
+336 silly linkStuff object-assign@4.1.0 has /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules as its parent node_modules
+337 verbose linkBins object-assign@4.1.0
+338 verbose linkMans object-assign@4.1.0
+339 verbose rebuildBundles object-assign@4.1.0
+340 info install object-assign@4.1.0
+341 info postinstall object-assign@4.1.0
+342 verbose unlock done using /Users/jerrymao/.npm/_locks/object-assign-ee902b73e3f707a3.lock for /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/object-assign
+343 verbose write writing to /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/soundcloud-audio/package.json
+344 verbose write writing to /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/classnames/package.json
+345 info preinstall classnames@2.2.5
+346 info preinstall soundcloud-audio@1.0.0
+347 verbose readDependencies loading dependencies from /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/classnames/package.json
+348 verbose readDependencies loading dependencies from /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/soundcloud-audio/package.json
+349 verbose readDependencies loading dependencies from /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/classnames/package.json
+350 verbose readDependencies loading dependencies from /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/soundcloud-audio/package.json
+351 silly install resolved []
+352 verbose about to build /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/classnames
+353 info build /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/classnames
+354 silly install resolved []
+355 verbose about to build /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/soundcloud-audio
+356 info build /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/soundcloud-audio
+357 info linkStuff classnames@2.2.5
+358 silly linkStuff classnames@2.2.5 has /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules as its parent node_modules
+359 info linkStuff soundcloud-audio@1.0.0
+360 silly linkStuff soundcloud-audio@1.0.0 has /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules as its parent node_modules
+361 verbose linkBins classnames@2.2.5
+362 verbose linkMans classnames@2.2.5
+363 verbose rebuildBundles classnames@2.2.5
+364 info install classnames@2.2.5
+365 verbose linkBins soundcloud-audio@1.0.0
+366 verbose linkMans soundcloud-audio@1.0.0
+367 verbose rebuildBundles soundcloud-audio@1.0.0
+368 info postinstall classnames@2.2.5
+369 info install soundcloud-audio@1.0.0
+370 info postinstall soundcloud-audio@1.0.0
+371 verbose unlock done using /Users/jerrymao/.npm/_locks/classnames-cf2bc98045cb8aca.lock for /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/classnames
+372 verbose unlock done using /Users/jerrymao/.npm/_locks/soundcloud-audio-0a6641b858388016.lock for /Users/jerrymao/slick/node_modules/react-soundplayer/node_modules/soundcloud-audio
+373 verbose about to build /Users/jerrymao/slick/node_modules/react-soundplayer
+374 info build /Users/jerrymao/slick/node_modules/react-soundplayer
+375 info linkStuff react-soundplayer@0.3.5
+376 silly linkStuff react-soundplayer@0.3.5 has /Users/jerrymao/slick/node_modules as its parent node_modules
+377 verbose linkBins react-soundplayer@0.3.5
+378 verbose linkMans react-soundplayer@0.3.5
+379 verbose rebuildBundles react-soundplayer@0.3.5
+380 verbose rebuildBundles [ 'classnames', 'object-assign', 'soundcloud-audio' ]
+381 info install react-soundplayer@0.3.5
+382 info postinstall react-soundplayer@0.3.5
+383 verbose readDependencies loading dependencies from /Users/jerrymao/slick/package.json
+384 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/bower/package.json
+385 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/buble-react-rollup-starter/package.json
+386 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/chai/package.json
+387 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/cors/package.json
+388 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/express/package.json
+389 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/gulp-rollup/package.json
+390 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/mocha/package.json
+391 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/node/package.json
+392 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/node-soundcloud/package.json
+393 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/react/package.json
+394 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/react-dom/package.json
+395 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/react-soundplayer/package.json
+396 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/request/package.json
+397 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/rollup/package.json
+398 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/rollup-plugin-buble/package.json
+399 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/rollup-plugin-commonjs/package.json
+400 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/rollup-plugin-jsx/package.json
+401 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/rollup-plugin-node-globals/package.json
+402 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/rollup-plugin-node-resolve/package.json
+403 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/rollup-plugin-npm/package.json
+404 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/rollup-plugin-replace/package.json
+405 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/rollup-plugin-uglify/package.json
+406 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/snazzy/package.json
+407 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/socket.io/package.json
+408 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/standard/package.json
+409 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/supertest/package.json
+410 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/.bin/bower/package.json
+411 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/.bin/mocha/package.json
+412 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/.bin/rollup/package.json
+413 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/.bin/snazzy/package.json
+414 verbose targetResolver reading package data from /Users/jerrymao/slick/node_modules/.bin/standard/package.json
+415 verbose already installed skipping react@^0.14.x /Users/jerrymao/slick
+416 verbose already installed skipping react-dom@^0.14.x /Users/jerrymao/slick
+417 silly install resolved []
+418 verbose unlock done using /Users/jerrymao/.npm/_locks/react-soundplayer-735052d734b60545.lock for /Users/jerrymao/slick/node_modules/react-soundplayer
+419 verbose validateInstall loading /Users/jerrymao/slick/package.json for validation
+420 verbose stack Error: The package react@15.1.0 does not satisfy its siblings' peerDependencies requirements!
+420 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+420 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
+420 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+420 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+420 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+420 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+420 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+420 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+420 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+420 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+421 verbose cwd /Users/jerrymao/slick
+422 error Darwin 15.4.0
+423 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "i" "react-soundplayer" "-S"
+424 error node v4.4.3
+425 error npm  v2.15.1
+426 error code EPEERINVALID
+427 error peerinvalid The package react@15.1.0 does not satisfy its siblings' peerDependencies requirements!
+427 error peerinvalid Peer react-dom@15.1.0 wants react@^15.1.0
+427 error peerinvalid Peer react-soundplayer@0.3.5 wants react@^0.14.x
+428 verbose exit [ 1, true ]

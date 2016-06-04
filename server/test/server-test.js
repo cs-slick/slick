@@ -2,8 +2,17 @@ const mocha = require('mocha');
 const expect = require('chai').expect;
 const server = require('../server');
 const request = require('supertest')(server);
+const io = require('socket.io-client');
 
+var socketURL = 'http://localhost:5000';
 
+const options = {
+  transports: ['websocket'],
+  'force new connection': true,
+}
+
+var slickUser1 = {'name': 'Mike'};
+var slickUser2 = {'name': 'Brendan'};
 
 describe('Server Routes Testing', function() {
   it('should server index html on GET request to /', function(done) {
@@ -11,6 +20,12 @@ describe('Server Routes Testing', function() {
       .get('/')
       .expect('Content-Type', /html/)
       .expect(200, done);
+  });
+
+  it('should respond to GET request to /songQueue with status code 200', function(done) {
+    request
+    .get('/songQueue')
+    .expect(200, done);
   });
 
   it('sending JSON object to client on GET request /songQueue', function(done) {
@@ -24,11 +39,13 @@ describe('Server Routes Testing', function() {
             if (!('artist' in songData)) throw new Error("missing artist property");
             if (!('songName' in songData)) throw new Error("missing songName property");
             if (!('thumbnailUrl' in songData)) throw new Error("missing thumbnailUrl property");
-            if (!('embedHtml' in songData)) throw new Error("missing embedHtml property");
+            if (!('trackUrl' in songData)) throw new Error("missing trackUrl property");
           });
       })
       .end(done);
   });
 
-
+//   it('Should broadcast new user to all users', done => {
+//
+//});
 });
