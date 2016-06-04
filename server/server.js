@@ -15,14 +15,27 @@ const SONGS = [
 app.use(express.static(__dirname + '/..'));
 
 //sending the html file
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
   res.sendFile('index.html');
 });
 
-
-
+app.get('/songQueue', (req, res) => {
+  res.json([
+    {
+      artist: 'Kanye',
+      songName: 'Famous',
+      thumbnailUrl: 'http://kanyethegod.com',
+      embedHtml: 'this is html string',
+    },
+    {
+      artist: 'Kanye',
+      songName: 'Famous',
+      thumbnailUrl: 'http://kanyethegod.com',
+      embedHtml: 'this is html string',
+    }
+  ]);
+});
 
 app.listen(3000);
-
 
 module.exports = app;
