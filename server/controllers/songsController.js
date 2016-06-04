@@ -37,7 +37,7 @@ songsDataController.getSongsData = (req, res, next) => {
           artist: songData.user.username,
           songName: songData.title,
           thumbnailUrl: songData.artwork_url,
-          trackUrl: songData.permalink_url,
+          trackUrl: songData.stream_url,
         }
       });
       req.data = output;
