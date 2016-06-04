@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
-const cors = require('cors');
+const server = app.listen(3000);
+const io = require('socket.io')(server);
 const songsController = require('./controllers/songsController');
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const cors = require('cors');
+
+app.use(cors());
 
 //setting up path directory and going up one level
 app.use(express.static(__dirname + '/..'));
@@ -21,11 +23,11 @@ app.get('/songQueue', songsController.getSongsData, (req, res) => {
 });
 
 io.on('connection', socket => {
+  console.log('new client connected');
   socket.on('playSong', (songUrl) => {
+    console.log('received songUrl: ', songUrl)
     io.emit('playSong', songUrl);
   });
 });
-
-app.listen(3000);
 
 module.exports = app;

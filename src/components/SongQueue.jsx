@@ -12,7 +12,7 @@ const SongQueue = (props) => {
         artist={songz.artist}
         songName = {songz.songName}
         thumbnailUrl = {songz.thumbnailUrl}
-        handleNewSongClick={props.handleNewSongClick}
+        handleNewSongClick={props.handleNewSongClick.bind(this, i)}
         />)
     })
   }
