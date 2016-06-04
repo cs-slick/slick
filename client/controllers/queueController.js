@@ -10,9 +10,9 @@ angular.module('Slick.QueueController', ['Slick.QueueFactory'])
   })
 
 
-  function QueueController(notscope, nothttp, notqueuefactory) {
-    notscope.trackArray = [];
-    notscope.songData = [
+  function QueueController(myScope, nothttp, notqueuefactory) {
+    myScope.trackArray = [];
+    myScope.songData = [
       {
         songName: "best song",
         artist: "best artist",
@@ -43,13 +43,13 @@ angular.module('Slick.QueueController', ['Slick.QueueFactory'])
     ]
     // QueueFactory.fetch
     //   .then((songs) => {
-    //     notscope.songData = songs;
+    //     myScope.songData = songs;
     //     songs.forEach((obj) => {
     //       let queueObj = {};
     //       queueObj.songName = obj.songName;
     //       queueObj.artist = obj.artist;
     //       queueObj.thumbnailUrl = obj.thumbnailUrl;
-    //       notscope.trackArray.push(queueObj);
+    //       myScope.trackArray.push(queueObj);
     //     })
     //   })
 

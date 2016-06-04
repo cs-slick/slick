@@ -7,8 +7,5 @@ function QueueFactory (nothttp) {
     fetch: () => {
       return nothttp.get('PUT GET REQUEST ROUTE HERE');
     }
-
-
   }
-
 }

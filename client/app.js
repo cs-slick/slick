@@ -2,10 +2,10 @@
 
 
 
+const socket = io()
 
 
-
-const app = angular.module('slickApp', ['Slick.QueueController', 'Slick.PlayerController', 'Slick.QueueFactory', 'plangular']);
+const app = angular.module('slickApp', ['ngSoundcloud','mediaPlayer','Slick.QueueController', 'Slick.PlayerController', 'Slick.QueueFactory', 'plangular']);
 
 
 app.config(function(plangularConfigProvider) {
