@@ -16,7 +16,7 @@ class SongPlayer extends React.Component {
     const audioUrl = this.props.currSong.trackUrl + `?client_id=${this.clientId}`;
     return (
       <div className="song-player">
-        <p>{this.props.currSong.artist}:  {this.props.currSong.songName}</p>
+        <img src={this.props.currSong.thumbnailUrl}></img><p className="currently-playing">{this.props.currSong.artist}:  {this.props.currSong.songName}</p>
         <audio src={audioUrl}
           ref="audio"
           controls
