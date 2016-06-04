@@ -1,29 +1,30 @@
+'use strict'
 const mocha = require('mocha');
 const expect = require('chai').expect
+const sd = require('skin-deep');
 
-describe('something' , function() {
-  'put functions/stuff here that we need'
+describe('Slick' , function() {
+  let vdom, instance, tree;
+  //'put functions/stuff here that we need'
 
 
-  describe('controllstusd', function() {
+  describe('stuff we are doing with slick component or something', function() {
     beforeEach(function() {
-      'stuff';
-      module('slickApp')
+      tree = sd.shallowRender(
+        <Slick />
+      );
+      instance = tree.getMountedInstance();
+      vdom = tree.getRenderOutput();
     });
 
-    beforeEach(inject(function() {
-      controller = $controller;
-    }))
 
-    it('DESCRIBE WHAT TEST DOES HERE', function() {
-
+    it('should do something', function() {
+      expect(vdom.state.songInfo).to.not.eql([])
     })
 
 
   })
 
-
-  describe('QueueController', )
 
 })
 
