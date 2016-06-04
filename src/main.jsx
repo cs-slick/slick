@@ -41,11 +41,11 @@ class Slick extends React.Component {
       if (this.state.songInfo[i].trackUrl === url)
         break;
     }
-
-    let nextSong = this.state.songInfo.splice(i, 1);
+    let arraycopy = this.state.songInfo;
+    let nextSong = arraycopy.splice(i, 1);
     this.setState({
       firstSong: nextSong[0],
-      songInfo: this.state.songInfo
+      songInfo: arraycopy,
     });
   }
 
@@ -70,7 +70,7 @@ class Slick extends React.Component {
           songInfo: data
         });
         // listen for playSong emit events
-        this.socket.on('playSong', handleServerPlayEvent);
+        this.socket.on('playSong', this.handleServerPlayEvent);
       }
     });
   }
