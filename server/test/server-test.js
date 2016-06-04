@@ -13,8 +13,6 @@ describe('Server Routes Testing', function() {
       .expect(200, done);
   });
 
-
-
   it('sending JSON object to client on GET request /songQueue', function(done) {
     // {artist,songName,thumbnailUrl, htmlString}
     request
@@ -24,13 +22,13 @@ describe('Server Routes Testing', function() {
           res.body.artist = 'Kanye';
           res.body.songName = 'Famous';
           res.body.thumbnailUrl = 'http://kanyethegod.com';
-          res.body.htmlString = 'this is html string';
+          res.body.embedHtml = 'this is html string';
       })
       .expect(200, {
         artist: 'Kanye',
         songName: 'Famous',
         thumbnailUrl: 'http://kanyethegod.com',
-        htmlString: 'this is html string',
+        embedHtml: 'this is html string',
       })
       .end(done);
   });
