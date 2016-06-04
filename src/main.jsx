@@ -5,9 +5,9 @@ import ReactDOM from 'react-dom';
 import SongQueue from './components/SongQueue.jsx';
 import SongPlayer from './components/SongPlayer.jsx'
 import Songs from './components/Songs.jsx'
-// import * as fetch from 'whatwg-fetch';
+import ReactAudioPlayer from 'react-audio-player';
 
-
+const socket = io();
 
 class Slick extends React.Component {
   constructor() {
@@ -17,6 +17,7 @@ class Slick extends React.Component {
       songInfo: []
     };
     this.newSongClick = this.newSongClick.bind(this);
+    this.onPlay = this.onPlay.bind(this);
   }
 
 
@@ -28,6 +29,11 @@ class Slick extends React.Component {
       firstSong: nextSong[0],
       songInfo: this.state.songInfo
     });
+  }
+
+  onPlay() {
+    console.log('playing music bruh');
+    socket.emit('playSong',this.state.firstSong.trackUrl)
   }
 
   //doing async request in cdm
@@ -54,6 +60,7 @@ class Slick extends React.Component {
       <div>
         <SongPlayer
           currSong = {this.state.firstSong || ''}
+          onPlay = {this.onPlay}
            />
         <SongQueue
           songInfo = {this.state.songInfo}

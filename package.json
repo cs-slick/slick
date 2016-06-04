@@ -27,6 +27,7 @@
     "mocha": "^2.5.3",
     "node": "0.0.0",
     "react": "^0.14.8",
+    "react-audio-player": "^0.1.0",
     "react-dom": "^0.14.8",
     "react-soundplayer": "^0.3.5",
     "request": "^2.72.0",
