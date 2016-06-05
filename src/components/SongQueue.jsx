@@ -10,7 +10,7 @@ const SongQueue = (props) => {
         key = {i}
         artist={songz.artist}
         songName = {songz.songName}
-        thumbnailUrl = {songz.thumbnailUrl || 'https://likesandfollowers.com/wp-content/uploads/2013/02/soundcloud.jpg'}
+        thumbnailUrl = {songz.thumbnailUrl || 'http://3.bp.blogspot.com/-PzpJFD56NmM/U4OEGvGR5pI/AAAAAAAAIO8/s9UBNaw800A/s1600/soundcloud.png'}
         handleNewSongClick={props.handleNewSongClick.bind(this, i)}
         />)
     })
