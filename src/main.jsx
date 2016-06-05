@@ -67,7 +67,7 @@ class Slick extends React.Component {
     let that = this;
     $.ajax({
       method: 'GET',
-      url: "http://192.168.1.19:3000/songQueue",
+      url: `${this.props.hostAddress}/songQueue`,
       contentType: 'application/json',
       dataTyle: 'json',
       success: data => {
@@ -105,6 +105,6 @@ class Slick extends React.Component {
 }
 
 ReactDOM.render(
-  <Slick />,
+  <Slick hostAddress="http://localhost:3000"/>,
   document.getElementById('content')
 )

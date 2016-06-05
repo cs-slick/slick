@@ -1,4 +1,5 @@
 const request = require('request');
+const CLIENT_ID = require('../../client-id.js');
 
 // provide hardcoded array of song urls to achieve MVP
 // future feature: add search functionality on front end to query list of
@@ -13,7 +14,6 @@ const SONGS = [
   'https://soundcloud.com/nightsinoctober/champions-good-music'
 ];
 
-const CLIENT_ID = "&client_id=0937b0d9c276c8ed417e401221c65323";
 const API_ENDPOINT = "http://api.soundcloud.com/resolve"
 
 const songsDataController = {};
@@ -21,7 +21,7 @@ const songsDataController = {};
 songsDataController.getSongsData = (req, res, next) => {
   const songPromisesArr = SONGS.map(url => {
     return new Promise((resolve, reject) => {
-      const apiCall = `${API_ENDPOINT}?url=${url}${CLIENT_ID}`
+      const apiCall = `${API_ENDPOINT}?url=${url}&client_id=${CLIENT_ID}`
       request(apiCall, (err, res, body) => {
         console.log(body);
         resolve(body);
