@@ -2,6 +2,16 @@
 Slack for Music: provide real time event driven collaboration between users for synchronized music playback and DJ delegation
 
 ##Overview
+###Tech Stack
+- React
+- rollup (bundling)
+- Socket.io
+- Mocha
+- Chai
+- Supertest
+- socket.io-client
+- Node + Express
+
 ###Front-end
 - built in React
 - 4 different components 
