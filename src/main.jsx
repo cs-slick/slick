@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom';
 import SongQueue from './components/SongQueue.jsx';
 import SongPlayer from './components/SongPlayer.jsx'
 import Songs from './components/Songs.jsx'
-import ReactAudioPlayer from 'react-audio-player';
 
 const socket = io();
 
