@@ -105,6 +105,6 @@ class Slick extends React.Component {
 }
 
 ReactDOM.render(
-  <Slick hostAddress="http://localhost:3000"/>,
+  <Slick hostAddress="YOUR_IP_ADDRESS:3000"/>,
   document.getElementById('content')
 )
