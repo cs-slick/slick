@@ -32,7 +32,7 @@ Slack for Music: provide real time event driven collaboration between users for 
   - ``pauseCurrent``:  same as the playCurrent event except pauses the current song
   - ``songEnded``: socket event dispatched when current song is done playing
 
-##Setup
+##Getting Started 
 1. Get your own Soundcloud client id at http://soundcloud.com/you/apps/new and use in ``client-id.js`` file
 2. Configure and define IP address of person hosting DJ room in ``main.js`` when instantiating ``<Slick>`` component 
 
