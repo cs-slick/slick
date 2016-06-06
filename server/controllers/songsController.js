@@ -23,7 +23,7 @@ songsDataController.getSongsData = (req, res, next) => {
     return new Promise((resolve, reject) => {
       const apiCall = `${API_ENDPOINT}?url=${url}&client_id=${CLIENT_ID}`
       request(apiCall, (err, res, body) => {
-        console.log(body);
+        if (res.statusCode === 404) resolve('');
         resolve(body);
       });
     });
