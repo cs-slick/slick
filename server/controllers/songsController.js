@@ -1,70 +1,72 @@
+'use strict';
+
 const request = require('request');
 const CLIENT_ID = require('../../client-id.js');
 //const Gracenote = require('node-gracenote');
 const PrivateKeys = require('../../privateKeys.js');
-const qs = require('querystring'); //need to successfully npm install
+const qs = require('querystring'); 
 
 ///////////////////////////////
 
 //YOUTUBE QUERY
 
-const youtubeBaseUrl = 'https://www.googleapis.com/youtube/v3/';
-const youtubeSearchType = 'search';
-const youtubeParameters = {
-  part: 'snippet',
-  maxResults: 1,
-  order: 'viewCount',
-  type: 'video',
-  videoEmbeddable: true,
-  videoSyndicated: true,
-  key: PrivateKeys.googleApiKey,
-};
+// const youtubeBaseUrl = 'https://www.googleapis.com/youtube/v3/';
+// const youtubeSearchType = 'search';
+// const youtubeParameters = {
+//   part: 'snippet',
+//   maxResults: 1,
+//   order: 'viewCount',
+//   type: 'video',
+//   videoEmbeddable: true,
+//   videoSyndicated: true,
+//   key: PrivateKeys.googleApiKey,
+// };
 
-youtubeParameters.q = req.body.artist + req.body.title; // Define search term based on what is recieved from client
+// youtubeParameters.q = req.body.artist + req.body.title; // Define search term based on what is recieved from client
 
-const youTubeQuery = youtubeBaseUrl + youtubeSearchType + '?' + qs.stringify(youtubeParameters);
+// const youTubeQuery = youtubeBaseUrl + youtubeSearchType + '?' + qs.stringify(youtubeParameters);
 
-// request(youTubeQuery, function (err, response, body) {
-//   console.log(body);
-//   youTubeParser(body);
-// });
+// // request(youTubeQuery, function (err, response, body) {
+// //   console.log(body);
+// //   youTubeParser(body);
+// // });
 
-function youTubeParser (YTobj) {
-  let youTubeResults = [];
-  YTobj.items.forEach(function (song) {
-    let songObj = {};
-    songObj.videoId = song.id.videoId;
-    songObj.description = song.snippet.description;
-    youTubeResults.push(songObj);
-  });
-  return youTubeResults;
-}
+// function youTubeParser (YTobj) {
+//   let youTubeResults = [];
+//   YTobj.items.forEach(function (song) {
+//     let songObj = {};
+//     songObj.videoId = song.id.videoId;
+//     songObj.description = song.snippet.description;
+//     youTubeResults.push(songObj);
+//   });
+//   return youTubeResults;
+// }
 // request('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=viewCount&q=muse&type=video&videoEmbeddable=true&videoSyndicated=true&key=AIzaSyBCv_kW7-ggyzKlfVHYfDVzAF5V3M2uwRM', function(err, response, body) {
 //   console.log(body);
 // });
 
 // SPOTIFY QUERY
 
-const spotifyBaseUrl = 'https://api.spotify.com/v1/';
-const spotifySearchType = 'search';
-const spotifyParameters = {
-  type: 'artist,track',
-  market: 'US',
-  limit: 5,
-};
+// const spotifyBaseUrl = 'https://api.spotify.com/v1/';
+// const spotifySearchType = 'search';
+// const spotifyParameters = {
+//   type: 'artist,track',
+//   market: 'US',
+//   limit: 5,
+// };
 
-spotifyParameters.q = req.body.artist + req.body.title; // Define search term
+// spotifyParameters.q = req.body.artist + req.body.title; // Define search term
 
-const spotifyQuery = spotifyBaseUrl + spotifySearchType + '?' + qs.stringify(spotifyParameters);
+// const spotifyQuery = spotifyBaseUrl + spotifySearchType + '?' + qs.stringify(spotifyParameters);
 
-const spotifyOptions = {
-  Accept: 'application/json',
-  url: spotifyQuery,
-};
+// const spotifyOptions = {
+//   Accept: 'application/json',
+//   url: spotifyQuery,
+// };
 
-request(spotifyOptions, function (err, response, body) {
-  console.log(body);
-});
+// request(spotifyOptions, function (err, response, body) {
+//   console.log(body);
+// });
 
 
 // // GRACENOTE QUERY
@@ -80,6 +82,8 @@ request(spotifyOptions, function (err, response, body) {
 
 
 //////////////////////////////
+
+
 
 // provide hardcoded array of song urls to achieve MVP
 // future feature: add search functionality on front end to query list of
@@ -125,6 +129,37 @@ songsDataController.getSongsData = (req, res, next) => {
       next();
     });
 
+};
+
+// SONGS DATA CONTROLLER SPOTIFY
+
+songsDataController.test = (req, res, next) => {
+  req.body.artist = 'KC and the Sunshine Band';
+  req.body.title = 'Boogie Shoes';
+  next();
+}
+
+songsDataController.getSpotifyData = (req, res, next) => {
+  const spotifyBaseUrl = 'https://api.spotify.com/v1/';
+  const spotifySearchType = 'search';
+  const spotifyParameters = {
+    type: 'artist,track',
+    market: 'US',
+    limit: 5,
+  };
+
+  spotifyParameters.q = req.body.artist + req.body.title; // Define search term
+
+  const spotifyQuery = spotifyBaseUrl + spotifySearchType + '?' + qs.stringify(spotifyParameters);
+
+  const spotifyOptions = {
+    Accept: 'application/json',
+    url: spotifyQuery,
+  };
+
+  request(spotifyOptions, function (err, response, body) {
+    console.log(body);
+  });
 };
 
 module.exports = songsDataController;

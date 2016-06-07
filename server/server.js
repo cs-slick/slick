@@ -4,8 +4,12 @@ const server = app.listen(3000);
 const io = require('socket.io')(server);
 const songsController = require('./controllers/songsController');
 const cors = require('cors');
+const bodyParser = require ('body-parser');
 
 app.use(cors());
+
+//body parser middleware
+app.use(bodyParser());
 
 //setting up path directory and going up one level
 app.use(express.static(__dirname + '/..'));
@@ -21,6 +25,8 @@ app.get('/', (req, res) => {
 app.get('/songQueue', songsController.getSongsData, (req, res) => {
   res.json(req.data);
 });
+
+app.get('/search', songsController.test, songsController.getSpotifyData);
 
 io.on('connection', socket => {
   console.log('new client connected');
