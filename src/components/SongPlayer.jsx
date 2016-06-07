@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import YouTube from 'react-youtube';
+import SongResultTile from './SongResultTile.jsx'
 
 const videoIdA = 'XxVg_s8xAms';
 const videoIdB = '-DX3vJiqxm4';
@@ -61,6 +62,7 @@ class SongPlayer extends React.Component {
     return (
       <div>
         <YouTube opts={opts} videoId={this.state.videoId} onReady={this.onReady} onPlay={this.onPlayVideo} onPause={this.onPauseVideo} onEnd={this.onEndVideo}/>
+        <
       </div>
     );
   }
