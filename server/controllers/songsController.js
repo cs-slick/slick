@@ -1,22 +1,64 @@
 const request = require('request');
 const CLIENT_ID = require('../../client-id.js');
 const Gracenote = require('node-gracenote');
+const PrivateKeys = require('../../privateKeys.js');
+const qs = require('querystring'); //need to successfully npm install
 
 ///////////////////////////////
 
+//YOUTUBE QUERY
+
+const baseUrl = 'https://www.googleapis.com/youtube/v3/';
+const searchType = 'search';
+const parameters = {
+  part: 'snippet',
+  maxResults: 5,
+  order: 'viewCount',
+  type: 'video',
+  videoEmbeddable: true,
+  videoSyndicated: true,
+  key: PrivateKeys.googleApiKey,
+};
+
+parameters.q = searchTerm; // Define search term based on what is recieved from client
+
+const youTubeQuery = baseUrl + searchType + '?' + qs.stringify(parameters);
+
+request(youTubeQuery, function (err, response, body) {
+  console.log(body);
+  youTubeParser(body);
+});
+
+function youTubeParser (YTobj) {
+  let youTubeResults = [];
+  YTobj.items.forEach(function (song) {
+    let songObj = {};
+    songObj.videoId = song.id.videoId;
+    songObj.title = song.snippet.title;
+    songObj.description = song.snippet.description;
+    youTubeResults.push(songObj);
+  });
+  return youTubeResults;
+}
 // request('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=viewCount&q=muse&type=video&videoEmbeddable=true&videoSyndicated=true&key=AIzaSyBCv_kW7-ggyzKlfVHYfDVzAF5V3M2uwRM', function(err, response, body) {
 //   console.log(body);
 // });
 
-// var clientId = "1064631179";
-// var clientTag = "D53C77DB2157936F00C4BE8D2AADAF12";
-// var userId = "87071795693237026-C14D11FA6E840FCCE3D1129E34AC8208";
-// //var api = new Gracenote(clientId, clientTag, userId);
-// var api = new Gracenote(clientId,clientTag,userId);
-// api.searchArtist("Foreigner", function(err, result) {
-//     console.log(result);
-//     console.log('err ', err);
-// });
+// GRACENOTE QUERY
+
+const clientId = PrivateKeys.clientId;
+const clientTag = PrivateKeys.clientTag;
+const userId = PrivateKeys.userId;
+let api = new Gracenote(clientId, clientTag, userId);
+api.searchArtist(searchTerm, function(err, result) { // Determine serach term based on what is recieved from client
+  console.log(result);
+  gracenoteParser(result);
+  console.log('err ', err);
+});
+
+function gracenoteParser (GNarray) {
+  
+}
 
 
 //////////////////////////////
