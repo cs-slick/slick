@@ -1,6 +1,6 @@
 const request = require('request');
 const CLIENT_ID = require('../../client-id.js');
-const Gracenote = require('node-gracenote');
+//const Gracenote = require('node-gracenote');
 const PrivateKeys = require('../../privateKeys.js');
 const qs = require('querystring'); //need to successfully npm install
 
@@ -8,11 +8,11 @@ const qs = require('querystring'); //need to successfully npm install
 
 //YOUTUBE QUERY
 
-const baseUrl = 'https://www.googleapis.com/youtube/v3/';
-const searchType = 'search';
-const parameters = {
+const youtubeBaseUrl = 'https://www.googleapis.com/youtube/v3/';
+const youtubeSearchType = 'search';
+const youtubeParameters = {
   part: 'snippet',
-  maxResults: 5,
+  maxResults: 1,
   order: 'viewCount',
   type: 'video',
   videoEmbeddable: true,
@@ -20,21 +20,20 @@ const parameters = {
   key: PrivateKeys.googleApiKey,
 };
 
-parameters.q = searchTerm; // Define search term based on what is recieved from client
+youtubeParameters.q = req.body.artist + req.body.title; // Define search term based on what is recieved from client
 
-const youTubeQuery = baseUrl + searchType + '?' + qs.stringify(parameters);
+const youTubeQuery = youtubeBaseUrl + youtubeSearchType + '?' + qs.stringify(youtubeParameters);
 
-request(youTubeQuery, function (err, response, body) {
-  console.log(body);
-  youTubeParser(body);
-});
+// request(youTubeQuery, function (err, response, body) {
+//   console.log(body);
+//   youTubeParser(body);
+// });
 
 function youTubeParser (YTobj) {
   let youTubeResults = [];
   YTobj.items.forEach(function (song) {
     let songObj = {};
     songObj.videoId = song.id.videoId;
-    songObj.title = song.snippet.title;
     songObj.description = song.snippet.description;
     youTubeResults.push(songObj);
   });
@@ -44,21 +43,40 @@ function youTubeParser (YTobj) {
 //   console.log(body);
 // });
 
-// GRACENOTE QUERY
+// SPOTIFY QUERY
 
-const clientId = PrivateKeys.clientId;
-const clientTag = PrivateKeys.clientTag;
-const userId = PrivateKeys.userId;
-let api = new Gracenote(clientId, clientTag, userId);
-api.searchArtist(searchTerm, function(err, result) { // Determine serach term based on what is recieved from client
-  console.log(result);
-  gracenoteParser(result);
-  console.log('err ', err);
+const spotifyBaseUrl = 'https://api.spotify.com/v1/';
+const spotifySearchType = 'search';
+const spotifyParameters = {
+  type: 'artist,track',
+  market: 'US',
+  limit: 5,
+};
+
+spotifyParameters.q = req.body.artist + req.body.title; // Define search term
+
+const spotifyQuery = spotifyBaseUrl + spotifySearchType + '?' + qs.stringify(spotifyParameters);
+
+const spotifyOptions = {
+  Accept: 'application/json',
+  url: spotifyQuery,
+};
+
+request(spotifyOptions, function (err, response, body) {
+  console.log(body);
 });
 
-function gracenoteParser (GNarray) {
-  
-}
+
+// // GRACENOTE QUERY
+
+// const clientId = PrivateKeys.clientId;
+// const clientTag = PrivateKeys.clientTag;
+// const userId = PrivateKeys.userId;
+// let api = new Gracenote(clientId, clientTag, userId);
+// api.searchArtist(searchTerm, function(err, result) { // Determine serach term based on what is recieved from client
+//   console.log(result);
+//   console.log('err ', err);
+// });
 
 
 //////////////////////////////
