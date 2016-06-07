@@ -3,8 +3,9 @@ import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SongQueue from './components/SongQueue.jsx';
-import SongPlayer from './components/SongPlayer.jsx'
-import Songs from './components/Songs.jsx'
+import SongPlayer from './components/SongPlayer.jsx';
+import Songs from './components/Songs.jsx';
+import SongSearch from './components/SongSearch.jsx';
 
 const socket = io();
 
@@ -17,6 +18,7 @@ class Slick extends React.Component {
       firstSong: {},
       //TODO: change to queue and store the song list as changed
       songInfo: [],
+      searchResults: [],
     };
     //TODO: add any new methods here
     this.newSongClick = this.newSongClick.bind(this);
@@ -72,7 +74,7 @@ class Slick extends React.Component {
       method: 'GET',
       url: `${this.props.hostAddress}/songQueue`,
       contentType: 'application/json',
-      dataTyle: 'json',
+      dataType: 'json',
       success: data => {
         that.setState({
           firstSong: data.shift(),
@@ -89,15 +91,71 @@ class Slick extends React.Component {
     socket.on('songEnded', this.onEnded);
   }
 
+  //Adding ajax post request for song searches
+  //Input JSON object with artist and title
+  //Receives JSON object array data of length 5 with info
+  searchForNewSongs() {
+    let that = this;
+    const searchData = {
+      artist: $('form #song-search-artist').val(),
+      song: $('form #song-search-title').val(),
+    }
+    $.ajax({
+      method:'POST',
+      url: `${this.props.hostAddress}/search`,
+      data: searchData,
+      contentType: 'application/json',
+      dataType: 'json',
+      error: () => {
+        console.log('error getting search results');
+      },
+      success: data => {
+        //data sets state for search results
+        //data should come in formatted as needed
+        that.setState({
+          searchResults: data,
+        })
+      },
+    });
+  }
+
+  //dummy data for search queue
+  //not turned on to set state right now
+  setDummySearchResultsData() {
+    this.setState(
+      searchResults: [
+      {
+       artist: 'KC and the Sunshine Band',
+       title: 'Boogie Shoes',
+       album: 'Saturday Night Fever',
+       videoUrl: 'https://www.youtube.com/watch?v=Ux2WXNsqfe8',
+       artistImg: 'http://rymimg.com/lk/o/a/290ada14c16c3ee387ae7978de563d39/949113.jpg',
+       albumImg: 'https://upload.wikimedia.org/wikipedia/en/c/c5/KC_and_the_Sunshine_Band_album_cover.jpg',
+      },
+      {
+       artist: 'Kanye West',
+       title: 'I Am a God',
+       album: 'Yeezus',
+       videoUrl: 'https://www.youtube.com/watch?v=OwSpn4pmv9Q',
+       artistImg: 'http://cos.h-cdn.co/assets/16/06/980x490/landscape-1455221555-kanye-west-pablo-cover-art-news-021116.jpg',
+       albumImg: 'http://www.billboard.com/files/styles/article_main_image/public/media/kanye-west-yeezus-650.jpg',
+      }
+    ])
+  }
+
   render() {
     //songplayer gets an empty string as props before the component mounts
     return (
       <div>
+        <SongSearch
+          searchResults={this.state.searchResults}
+          handleSearchEvent={this.searchForNewSongs}
+          />
         <SongPlayer
           currSong={this.state.firstSong || ''}
           onPlay={this.onPlay}
           onPause={this.onPause}
-          onEnded = {this.onEnded}
+          onEnded={this.onEnded}
            />
         <SongQueue
           songInfo={this.state.songInfo}
