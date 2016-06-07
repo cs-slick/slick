@@ -13,9 +13,12 @@ class Slick extends React.Component {
     //initial state is an empty
     super();
     this.state = {
+      //TODO: change to current song
       firstSong: {},
+      //TODO: change to queue and store the song list as changed
       songInfo: [],
     };
+    //TODO: add any new methods here
     this.newSongClick = this.newSongClick.bind(this);
     this.onPlay = this.onPlay.bind(this);
     this.updateSong = this.updateSong.bind(this);
@@ -82,11 +85,12 @@ class Slick extends React.Component {
     socket.on('playSong', this.handleServerPlayEvent);
     socket.on('playCurrent', this.handleServerPlayCurrentSongEvent);
     socket.on('pauseCurrent', this.handleServerPauseCurrentSongEvent);
+    // add event listener for song added and song deleted
     socket.on('songEnded', this.onEnded);
   }
 
   render() {
-    //songplayer gets an empty string as props before the component mounds
+    //songplayer gets an empty string as props before the component mounts
     return (
       <div>
         <SongPlayer
