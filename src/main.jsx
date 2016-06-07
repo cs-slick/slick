@@ -149,7 +149,7 @@ class Slick extends React.Component {
       <div>
         <SongSearch
           searchResults={this.state.searchResults}
-          handleSearchEvent={this.searchForNewSongs}
+          handleSearchEvent={this.setDummySearchResultsData}
           />
         <SongPlayer
           currSong={this.state.firstSong || ''}
