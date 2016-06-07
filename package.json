@@ -4,36 +4,47 @@
   "description": "Slack for Music: provide real time event driven collaboration between users for synchronized music playback and DJ delegation",
   "main": "index.js",
   "scripts": {
+    "build": "node_modules/.bin/gulp",
     "test": "mocha ./server/test/*.js || exit 0",
     "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mbchoa/slick.git"
+    "url": "git+https://github.com/midMEETdle/slick"
   },
-  "author": "Michael-Bryant Choa, Jenna Davis, Brendan Del Rosario, Jerry Mao",
+  "author": "Michael Blanchard, Sandra Winkler, Bryan Kitchener, Matt McLaughlin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mbchoa/slick/issues"
+    "url": "https://github.com/midMEETdle/slick"
   },
-  "homepage": "https://github.com/mbchoa/slick#readme",
+  "homepage": "https://github.com/midMEETdle/slick",
   "dependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.3.0",
     "bower": "^1.7.9",
+    "browserify": "^13.0.1",
     "buble-react-rollup-starter": "^1.2.0",
     "chai": "^3.5.0",
     "cors": "^2.7.1",
     "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.0.7",
+    "gulp-util": "^3.0.7",
     "jquery": "^2.2.4",
     "mocha": "^2.5.3",
     "node": "0.0.0",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
+    "reactify": "^1.1.1",
     "request": "^2.72.0",
     "rollup": "^0.26.3",
     "skin-deep": "^0.16.0",
     "socket.io": "^1.4.6",
     "socket.io-client": "^1.4.6",
     "supertest": "^1.2.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0",
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {

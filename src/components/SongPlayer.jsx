@@ -3,7 +3,7 @@ import React from 'react';
 class SongPlayer extends React.Component {
   componentDidMount() {
     // change clientId to your own client id
-    this.clientId = 'YOUR_CLIENT_ID';
+    this.clientId = '153728344c25ab55faa73d175613e50c';
     this.refs.audio.addEventListener('playing', this.props.onPlay);
     this.refs.audio.addEventListener('pause', this.props.onPause);
     this.refs.audio.addEventListener('ended', this.props.onEnded);
