@@ -1,5 +1,25 @@
 const request = require('request');
 const CLIENT_ID = require('../../client-id.js');
+const Gracenote = require('node-gracenote');
+
+///////////////////////////////
+
+// request('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=viewCount&q=muse&type=video&videoEmbeddable=true&videoSyndicated=true&key=AIzaSyBCv_kW7-ggyzKlfVHYfDVzAF5V3M2uwRM', function(err, response, body) {
+//   console.log(body);
+// });
+
+// var clientId = "1064631179";
+// var clientTag = "D53C77DB2157936F00C4BE8D2AADAF12";
+// var userId = "87071795693237026-C14D11FA6E840FCCE3D1129E34AC8208";
+// //var api = new Gracenote(clientId, clientTag, userId);
+// var api = new Gracenote(clientId,clientTag,userId);
+// api.searchArtist("Foreigner", function(err, result) {
+//     console.log(result);
+//     console.log('err ', err);
+// });
+
+
+//////////////////////////////
 
 // provide hardcoded array of song urls to achieve MVP
 // future feature: add search functionality on front end to query list of
