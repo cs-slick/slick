@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
 // client logic will request this API once index.html loads
 // to retrieve stock song queue to generate list of songs
 // to render on page
-app.get('/songQueue', songsController.getSongsData, (req, res) => {
-  res.json(req.data);
+app.get('/songQueue', (req, res) => {
+  res.json(songsController.playerState);
 });
 
 app.post('/search', songsController.getSpotifyData);
@@ -34,10 +34,12 @@ io.on('connection', socket => {
   console.log('new client connected');
   socket.on('playSong', (newSongState) => {
     console.log('received updated Song State: ', newSongState);
+    songsController.playerState = newSongState;
     io.emit('playSong', newSongState);
   });
 // listen for queue update and then emit the new song state for all clients to update their state
   socket.on('updateQueue', (newSongState) => {
+    songsController.playerState = newSongState;
     io.emit('updateQueue', newSongState);
   });
 
@@ -47,9 +49,9 @@ io.on('connection', socket => {
   // add pauseCurrent event handler
   socket.on('pauseCurrent', () => io.emit('pauseCurrent'));
 
-  socket.on('songEnded', (songUrl) => {
+  socket.on('songEnded', (newSongState) => {
     console.log('song has ended!');
-    io.emit('songEnded', songUrl);
+    io.emit('songEnded', newSongState);
   });
 });
 

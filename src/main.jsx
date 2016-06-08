@@ -6,6 +6,7 @@ import SongQueue from './components/SongQueue.jsx';
 import SongPlayer from './components/SongPlayer.jsx';
 import SongQueueTile from './components/SongQueueTile.jsx';
 import SongSearch from './components/SongSearch.jsx';
+import request from 'request';
 
 const socket = io();
 
@@ -57,11 +58,6 @@ class Slick extends React.Component {
     this.setState(newSongState);
   }
 
-  ComponentDidUpdate() {
-    //send event to socket to update all clients
-    socket.emit('updateQueue', this.state.songInfo);
-  }
-
   handleServerPlayEvent(newSongState) {
     this.setState(newSongState);
   }
@@ -91,6 +87,18 @@ class Slick extends React.Component {
   }
   //doing async request in componentDidMount
   componentDidMount() {
+
+    let that = this;
+    $.ajax({
+      method: 'GET',
+      url: '/songQueue',
+      contentType: 'application/json',
+      dataType: 'json',
+      success: data => {
+        that.setState(data);
+      }
+    });
+
     // listen for emit events from the server
     socket.on('playSong', this.handleServerPlayEvent);
     socket.on('playCurrent', this.handleServerPlayCurrentSongEvent);
@@ -157,10 +165,15 @@ class Slick extends React.Component {
     ]});
   };
 
+  // let divStyle = {
+  //   backgroundImage: 'url(' + this.state.currentSong.artistImg + ')' || '',
+  //   style={divStyle};
+  // }
+
   render() {
     //songplayer gets an empty string as props before the component mounts
     return (
-      <div>
+      <div className='app' style={{backgroundImage: 'url("https://i.scdn.co/image/8cff70e0360bb20ca403ad003108bd5c5ea5378d")'}}>
         <SongSearch
           addSongToQueue={this.addSongToQueue}
           searchResults={this.state.searchResults}
