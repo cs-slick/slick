@@ -20,18 +20,20 @@ class Slick extends React.Component {
       //TODO: change to queue and store the song list as changed
       songInfo: [],
       searchResults: [],
+      player: null,
     };
     //TODO: add any new methods here
-    this.newSongClick = this.newSongClick.bind(this);
-    this.onPlay = this.onPlay.bind(this);
     //this.updateSong = this.updateSong.bind(this);
+    this.newSongClick = this.newSongClick.bind(this);
+    this.addSongToQueue = this.addSongToQueue.bind(this);
     this.handleServerPlayEvent = this.handleServerPlayEvent.bind(this);
-    this.handleServerPlayCurrentSongEvent = this.handleServerPlayCurrentSongEvent.bind(this);
-    this.handleServerPauseCurrentSongEvent = this.handleServerPauseCurrentSongEvent.bind(this);
     this.onEnded = this.onEnded.bind(this);
     this.searchForNewSongs = this.searchForNewSongs.bind(this);
-    this.setDummySearchResultsData = this.setDummySearchResultsData.bind(this);
-    this.addSongToQueue = this.addSongToQueue.bind(this);
+    this.onPlay = this.onPlay.bind(this);
+    this.onPause = this.onPause.bind(this);
+    this.handleServerPlayCurrentSongEvent = this.handleServerPlayCurrentSongEvent.bind(this);
+    this.handleServerPauseCurrentSongEvent = this.handleServerPauseCurrentSongEvent.bind(this);
+    this.updateYoutubePlayer = this.updateYoutubePlayer.bind(this);
   }
 
   newSongClick(i) {
@@ -45,17 +47,18 @@ class Slick extends React.Component {
   }
 
   addSongToQueue(i) {
-    // when the result is clicked we want to take the whole object and ad it to the songInfo state object.
+    // when the result is clicked we want to take the whole object and add it to the songInfo state object.
     let currSongList = this.state.songInfo;
     let searchResultList = this.state.searchResults;
     currSongList.push(searchResultList.splice(i, 1)[0]);
-    let newSongState = {
+    let newSongClientState = {
       songInfo: currSongList,
       searchResults: searchResultList,
     };
+    let newSongSharedState = {songInfo: currSongList};
     //send event to socket to update all clients
-    socket.emit('updateQueue', newSongState);
-    this.setState(newSongState);
+    socket.emit('updateQueue', newSongSharedState);
+    this.setState(newSongClientState);
   }
 
   handleServerPlayEvent(newSongState) {
@@ -77,37 +80,19 @@ class Slick extends React.Component {
   // }
 
   onPlay(e) { socket.emit('playCurrent'); }
-  handleServerPlayCurrentSongEvent () { this.audio.play(); }
+  handleServerPlayCurrentSongEvent () { this.state.player.playVideo(); }
 
   onPause(e) { socket.emit('pauseCurrent'); }
-  handleServerPauseCurrentSongEvent () { this.audio.pause(); }
+  handleServerPauseCurrentSongEvent () { this.state.player.pauseVideo(); }
 
   onEnded() {
     this.updateSong(this.state.songInfo[0].trackUrl);
   }
-  //doing async request in componentDidMount
-  componentDidMount() {
 
-    let that = this;
-    $.ajax({
-      method: 'GET',
-      url: '/songQueue',
-      contentType: 'application/json',
-      dataType: 'json',
-      success: data => {
-        that.setState(data);
-      }
+  updateYoutubePlayer(event) {
+    this.setState({
+      player: event.target,
     });
-
-    // listen for emit events from the server
-    socket.on('playSong', this.handleServerPlayEvent);
-    socket.on('playCurrent', this.handleServerPlayCurrentSongEvent);
-    socket.on('pauseCurrent', this.handleServerPauseCurrentSongEvent);
-    socket.on('updateQueue', (newSongState) => {
-      this.setState(newSongState);
-    });
-    // add event listener for song added and song deleted
-    socket.on('songEnded', this.onEnded);
   }
 
   //Adding ajax post request for song searches
@@ -117,13 +102,21 @@ class Slick extends React.Component {
     e.preventDefault();
     let that = this;
     const searchData = {
-      artist: $('form #song-search-artist').val(),
-      title: $('form #song-search-title').val(),
+      artist: document.getElementById('song-search-artist').value,
+      title: document.getElementById('song-search-title').value,
     };
     console.log('searchData ', searchData);
+  //   request.post({url: `${this.props.hostAddress}/search`, json: searchData})
+  //     .on(data => {
+  //       console.log('data is ', JSON.parse(data));
+  //       that.setState({
+  //         searchResults: JSON.parse(data),
+  //       });
+  //     })
+  //     .catch(err => console.log('error getting search results'));
     $.ajax({
       method:'POST',
-      url: '/search',
+      url: `${this.props.hostAddress}/search`,
       data: searchData,
       //contentType: 'application/json',
       error: () => {
@@ -140,35 +133,28 @@ class Slick extends React.Component {
     });
   }
 
-  //dummy data for search queue
-  //not turned on to set state right now
-  setDummySearchResultsData(e) {
-    e.preventDefault();
-    this.setState({
-      searchResults: [
-      {
-       artist: 'KC and the Sunshine Band',
-       title: 'Boogie Shoes',
-       album: 'Saturday Night Fever',
-       videoId: 'Ux2WXNsqfe8',
-       artistImg: 'http://rymimg.com/lk/o/a/290ada14c16c3ee387ae7978de563d39/949113.jpg',
-       albumImg: 'https://upload.wikimedia.org/wikipedia/en/c/c5/KC_and_the_Sunshine_Band_album_cover.jpg',
-      },
-      {
-       artist: 'Kanye West',
-       title: 'I Am a God',
-       album: 'Yeezus',
-       videoId: 'OwSpn4pmv9Q',
-       artistImg: 'http://cos.h-cdn.co/assets/16/06/980x490/landscape-1455221555-kanye-west-pablo-cover-art-news-021116.jpg',
-       albumImg: 'http://www.billboard.com/files/styles/article_main_image/public/media/kanye-west-yeezus-650.jpg',
+  componentDidMount() {
+      //doing async request in componentDidMount
+    let that = this;
+    $.ajax({
+      method: 'GET',
+      url: '/songQueue',
+      contentType: 'application/json',
+      dataType: 'json',
+      success: data => {
+        that.setState(data);
       }
-    ]});
-  };
-
-  // let divStyle = {
-  //   backgroundImage: 'url(' + this.state.currentSong.artistImg + ')' || '',
-  //   style={divStyle};
-  // }
+    });
+    // listen for emit events from the server
+    socket.on('playSong', this.handleServerPlayEvent);
+    socket.on('playCurrent', this.handleServerPlayCurrentSongEvent);
+    socket.on('pauseCurrent', this.handleServerPauseCurrentSongEvent);
+    socket.on('updateQueue', (newSongState) => {
+      this.setState(newSongState);
+    });
+    // add event listener for song added and song deleted
+    socket.on('songEnded', this.onEnded);
+  }
 
   render() {
     //songplayer gets an empty string as props before the component mounts
@@ -184,6 +170,8 @@ class Slick extends React.Component {
           onPlay={this.onPlay}
           onPause={this.onPause}
           onEnded={this.onEnded}
+          onReady={this.updateYoutubePlayer}
+          player={this.state.player}
            />
         <SongQueue
           songInfo={this.state.songInfo}
@@ -195,6 +183,6 @@ class Slick extends React.Component {
 }
 
 ReactDOM.render(
-  <Slick hostAddress="http://localhost:3000"/>,
+  <Slick hostAddress="http://192.168.1.123:3000"/>,
   document.getElementById('content')
 )
