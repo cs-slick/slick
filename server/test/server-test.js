@@ -33,15 +33,18 @@ describe('Server Routes Testing', function() {
   it('sending JSON object to client on GET request /songQueue', function(done) {
     // {artist,songName,thumbnailUrl, htmlString}
     request
-      .get('/songQueue')
-      .expect('Content-Type', /json/)
+      .get('/search')
       .expect(function(res) {
-          const jsonDataArr = res.body;
+        //console.log(res.text);
+          const jsonDataArr = JSON.parse(res.text);
           jsonDataArr.forEach(songData => {
             if (!('artist' in songData)) throw new Error("missing artist property");
-            if (!('songName' in songData)) throw new Error("missing songName property");
-            if (!('thumbnailUrl' in songData)) throw new Error("missing thumbnailUrl property");
-            if (!('trackUrl' in songData)) throw new Error("missing trackUrl property");
+            if (!('artistImg' in songData)) throw new Error("missing artistImg property");
+            if (!('album' in songData)) throw new Error("missing album property");
+            if (!('albumImg' in songData)) throw new Error("missing albumImg property");
+            if (!('title' in songData)) throw new Error("missing title property");
+            if (!('description' in songData)) throw new Error("missing description property");
+            if (!('videoId' in songData)) throw new Error("missing videoId property");
           });
       })
       .end(done);
