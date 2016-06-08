@@ -10,6 +10,7 @@ class SongSearch extends React.Component {
 			let searchResultObject = this.props.searchResults[i];
 			searchTileArray.push(
 				<SongResultTile
+          key={i}
           addSongToQueue={this.props.addSongToQueue}
           itemNum={i}
 					artist={searchResultObject.artist}

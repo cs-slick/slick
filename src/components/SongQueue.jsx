@@ -7,6 +7,7 @@ const SongQueue = (props) => {
   const createList = () => {
     return props.songInfo.map((songDataObject, i) => {
       return (<SongQueueTile
+        key={i}
         itemNum = {i}
         artist={songDataObject.artist}
         title = {songDataObject.title}

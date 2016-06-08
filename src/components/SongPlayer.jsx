@@ -2,27 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import YouTube from 'react-youtube';
 
-
-const videoIdA = 'XxVg_s8xAms';
-const videoIdB = '-DX3vJiqxm4';
-
 class SongPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      videoId: videoIdA,
+      //videoUrl: 'Ux2WXNsqfe8',
       player: null,
     };
 
     this.onReady = this.onReady.bind(this);
-    this.onChangeVideo = this.onChangeVideo.bind(this);
+    //this.onChangeVideo = this.onChangeVideo.bind(this);
     this.onPlayVideo = this.onPlayVideo.bind(this);
     this.onPauseVideo = this.onPauseVideo.bind(this);
     this.onEndVideo = this.onEndVideo.bind(this);
   }
 
   onReady(event) {
-    console.log(`YouTube Player object for videoId: "${this.state.videoId}" has been saved to state.`); // eslint-disable-line
+    console.log(`YouTube Player object for videoUrl: "${this.state.videoUrl}" has been saved to state.`); // eslint-disable-line
     this.setState({
       player: event.target,
     });
@@ -45,7 +41,7 @@ class SongPlayer extends React.Component {
 
   // onChangeVideo() {
   //   this.setState({
-  //     videoId: this.state.videoId === videoIdA ? videoIdB : videoIdA,
+  //     videoUrl: this.state.videoUrl === videoUrlA ? videoUrlB : videoUrlA,
   //   });
   // }
 
@@ -61,7 +57,7 @@ class SongPlayer extends React.Component {
     };
     return (
       <div>
-        <YouTube opts={opts} videoId={this.state.videoId} onReady={this.onReady} onPlay={this.onPlayVideo} onPause={this.onPauseVideo} onEnd={this.onEndVideo}/>
+        <YouTube opts={opts} videoId={this.props.currSong.videoUrl} onReady={this.onReady} onPlay={this.onPlayVideo} onPause={this.onPauseVideo} onEnd={this.onEndVideo}/>
       </div>
     );
   }

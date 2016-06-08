@@ -15,7 +15,7 @@ class Slick extends React.Component {
     super();
     this.state = {
       //TODO: change to current song
-      currentSong: {},
+      currentSong: '',
       //TODO: change to queue and store the song list as changed
       songInfo: [],
       searchResults: [],
@@ -23,7 +23,7 @@ class Slick extends React.Component {
     //TODO: add any new methods here
     this.newSongClick = this.newSongClick.bind(this);
     this.onPlay = this.onPlay.bind(this);
-    this.updateSong = this.updateSong.bind(this);
+    //this.updateSong = this.updateSong.bind(this);
     this.handleServerPlayEvent = this.handleServerPlayEvent.bind(this);
     this.handleServerPlayCurrentSongEvent = this.handleServerPlayCurrentSongEvent.bind(this);
     this.handleServerPauseCurrentSongEvent = this.handleServerPauseCurrentSongEvent.bind(this);
@@ -34,9 +34,13 @@ class Slick extends React.Component {
   }
 
   newSongClick(i) {
-    const songObj = this.state.songInfo[i];
-    const songUrl = songObj.trackUrl;
-    socket.emit('playSong', songUrl);
+    let songQueueArray = this.state.songInfo;
+    let newSongState = {
+      currentSong: songQueueArray.splice(i,1)[0],
+      songInfo: songQueueArray,
+    }
+    socket.emit('playSong', newSongState);
+    this.setState(newSongState);
   }
 
   addSongToQueue(i) {
@@ -44,34 +48,37 @@ class Slick extends React.Component {
     let currSongList = this.state.songInfo;
     let searchResultList = this.state.searchResults;
     currSongList.push(searchResultList.splice(i, 1)[0]);
-
-    this.setState({
+    let newSongState = {
       songInfo: currSongList,
       searchResults: searchResultList,
-    })
+    };
+    //send event to socket to update all clients
+    socket.emit('updateQueue', newSongState);
+    this.setState(newSongState);
   }
 
   ComponentDidUpdate() {
+    //send event to socket to update all clients
     socket.emit('updateQueue', this.state.songInfo);
   }
 
-  handleServerPlayEvent(songUrl) {
-    this.updateSong(songUrl);
+  handleServerPlayEvent(newSongState) {
+    this.setState(newSongState);
   }
 
-  updateSong(url) {
-    const index = this.state.songInfo.indexOf()
-    for (var i = 0; i < this.state.songInfo.length; i++) {
-      if (this.state.songInfo[i].trackUrl === url)
-        break;
-    }
-    let arraycopy = this.state.songInfo;
-    let nextSong = arraycopy.splice(i, 1);
-    this.setState({
-      currentSong: nextSong[0],
-      songInfo: arraycopy,
-    });
-  }
+  // updateSong(url) {
+  //   const index = this.state.songInfo.indexOf()
+  //   for (var i = 0; i < this.state.songInfo.length; i++) {
+  //     if (this.state.songInfo[i].trackUrl === url)
+  //       break;
+  //   }
+  //   let arraycopy = this.state.songInfo;
+  //   let nextSong = arraycopy.splice(i, 1);
+  //   this.setState({
+  //     currentSong: nextSong[0],
+  //     songInfo: arraycopy,
+  //   });
+  // }
 
   onPlay(e) { socket.emit('playCurrent'); }
   handleServerPlayCurrentSongEvent () { this.audio.play(); }
@@ -82,13 +89,15 @@ class Slick extends React.Component {
   onEnded() {
     this.updateSong(this.state.songInfo[0].trackUrl);
   }
-  //doing async request in cdm
+  //doing async request in componentDidMount
   componentDidMount() {
     // listen for emit events from the server
     socket.on('playSong', this.handleServerPlayEvent);
     socket.on('playCurrent', this.handleServerPlayCurrentSongEvent);
     socket.on('pauseCurrent', this.handleServerPauseCurrentSongEvent);
-
+    socket.on('updateQueue', (newSongState) => {
+      this.setState(newSongState);
+    });
     // add event listener for song added and song deleted
     socket.on('songEnded', this.onEnded);
   }
@@ -121,8 +130,6 @@ class Slick extends React.Component {
       },
     });
   }
-
-
 
   //dummy data for search queue
   //not turned on to set state right now
@@ -159,7 +166,7 @@ class Slick extends React.Component {
           handleSearchEvent={this.setDummySearchResultsData}
           />
         <SongPlayer
-          currSong={this.state.currentSong || ''}
+          currSong={this.state.currentSong}
           onPlay={this.onPlay}
           onPause={this.onPause}
           onEnded={this.onEnded}
