@@ -47,18 +47,18 @@ class Slick extends React.Component {
   }
 
   addSongToQueue(i) {
-    // when the result is clicked we want to take the whole object and ad it to the songInfo state object.
+    // when the result is clicked we want to take the whole object and add it to the songInfo state object.
     let currSongList = this.state.songInfo;
     let searchResultList = this.state.searchResults;
     currSongList.push(searchResultList.splice(i, 1)[0]);
-    let newSongSharedState = {
+    let newSongClientState = {
       songInfo: currSongList,
       searchResults: searchResultList,
     };
-    let newSongState = {songInfo: currSongList};
+    let newSongSharedState = {songInfo: currSongList};
     //send event to socket to update all clients
     socket.emit('updateQueue', newSongSharedState);
-    this.setState(newSongState);
+    this.setState(newSongClientState);
   }
 
   handleServerPlayEvent(newSongState) {
@@ -116,7 +116,7 @@ class Slick extends React.Component {
   //     .catch(err => console.log('error getting search results'));
     $.ajax({
       method:'POST',
-      url: '/search',
+      url: `${this.props.hostAddress}/search`,
       data: searchData,
       //contentType: 'application/json',
       error: () => {
@@ -183,6 +183,6 @@ class Slick extends React.Component {
 }
 
 ReactDOM.render(
-  <Slick hostAddress="http://localhost:3000"/>,
+  <Slick hostAddress="http://192.168.1.123:3000"/>,
   document.getElementById('content')
 )
