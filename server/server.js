@@ -51,6 +51,7 @@ io.on('connection', socket => {
 
   socket.on('songEnded', (newSongState) => {
     console.log('song has ended!');
+    songsController.playerState = newSongState;
     io.emit('songEnded', newSongState);
   });
 });
