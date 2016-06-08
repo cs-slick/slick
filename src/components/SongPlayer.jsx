@@ -5,21 +5,6 @@ import YouTube from 'react-youtube';
 class SongPlayer extends React.Component {
   constructor(props) {
     super(props);
-    this.onPlayVideo = this.onPlayVideo.bind(this);
-    this.onPauseVideo = this.onPauseVideo.bind(this);
-    this.onEndVideo = this.onEndVideo.bind(this);
-  }
-
-  onPlayVideo() {
-    this.props.onPlay();
-  }
-
-  onPauseVideo() {
-    this.props.onPause();
-  }
-
-  onEndVideo() {
-    this.props.onEnded();
   }
 
   render() {
