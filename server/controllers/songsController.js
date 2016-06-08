@@ -25,7 +25,7 @@ songsDataController.test = (req, res, next) => {
 // SONGS DATA CONTROLLER SPOTIFY
 
 songsDataController.getSpotifyData = (req, res, next) => {
-
+  console.log(req.body);
   // we are creating a spotify API call request
   const spotifyBaseUrl = 'https://api.spotify.com/v1/';
   const spotifySearchType = 'search';
