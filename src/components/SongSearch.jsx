@@ -1,4 +1,5 @@
 import React from 'react';
+import SongResultTile from './SongResultTile.jsx'
 
 class SongSearch extends React.Component {
 
@@ -8,7 +9,9 @@ class SongSearch extends React.Component {
 		for (let i = 0; i < this.props.searchResults.length; i++) {
 			let searchResultObject = this.props.searchResults[i];
 			searchTileArray.push(
-				<SongTile
+				<SongResultTile
+          addSongToQueue={this.props.addSongToQueue}
+          itemNum={i}
 					artist={searchResultObject.artist}
 					title={searchResultObject.title}
 					album={searchResultObject.album}
@@ -18,27 +21,28 @@ class SongSearch extends React.Component {
 				/>
 				)
 		}
-		return searchTileArray;
+		return (searchTileArray.length > 0) ? searchTileArray : null;
 	}
 
 	render () {
+    return (
 		<div id="search-container">
 			<form>
 				<div className='search-bar'>
-					<label htmlFor={"artist" + this.props.id}>Artist:</label>
-					<input type="text" id="song-search-artist"/>
+					<input type="text" id="song-search-artist" placeholder="Artist" />
 				</div>
 				<div className='search-bar'>
-					<label htmlFor={"song" + this.props.id}>Song:</label>
-					<input type="text" id="song-search-title"/>
+					<input type="text" id="song-search-title" placeholder="Title"/>
 				</div>
+        <button className='search-button' onClick={this.props.handleSearchEvent.bind(this)}>Search</button>
 			</form>
-			<div id='search-results-list'>
-				{createSearchResultList()}
-			</div>
+      <div id='search-results-list'>
+          {this.createSearchResultList()}
+      </div>
 		</div>
+    )
 	}
-	
+
 }
 
 export default SongSearch;
