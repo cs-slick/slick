@@ -4,7 +4,7 @@ const request = require('request');
 const CLIENT_ID = require('../../client-id.js');
 //const Gracenote = require('node-gracenote');
 const PrivateKeys = require('../../privateKeys.js');
-const qs = require('querystring'); 
+const qs = require('querystring');
 
 ///////////////////////////////
 
@@ -140,17 +140,18 @@ songsDataController.test = (req, res, next) => {
 }
 
 songsDataController.parseSpotifyData =  (data, title, artist) => {
+  console.log('spotify data ', data);
   var final = [];
   var tracks = data.tracks.items;
 
 // if no title provided, grab first five track results
   if(title === "") {
-    tracks = tracks.slice(0, 5);  
+    tracks = tracks.slice(0, 5);
   }
 
-// if title is provided, loop thorugh all track names until a match is found 
+// if title is provided, loop thorugh all track names until a match is found
   else {
-    //use for loop 
+    //use for loop
     for (var i = 0; i < tracks.length; i++) {
       if (tracks[i].name.indexOf(title) > -1) {
         tracks = [tracks[i]];
@@ -158,7 +159,7 @@ songsDataController.parseSpotifyData =  (data, title, artist) => {
       }
     }
   }
-  // now traverse tracks objects and pull out necessary info from each 
+  // now traverse tracks objects and pull out necessary info from each
   //and push complete object into final array
 
   tracks.forEach( (trackObject) => {
@@ -209,7 +210,7 @@ songsDataController.getYouTubeData = (promiseArray, finalArray, res) => {
   Promise
   .all(promiseArray)
   .then( (youTubeDataArray) => {
-    var afterPromiseYouTubeData = youTubeDataArray.map( JSON.parse); 
+    var afterPromiseYouTubeData = youTubeDataArray.map( JSON.parse);
     songsDataController.parseYouTubeData(afterPromiseYouTubeData, finalArray, res);
   });
 };
@@ -230,13 +231,14 @@ songsDataController.parseYouTubeData = (dataToBeParsed, finalArray, res) => {
         combinedData[combinedData.length-1].description = dataToBeParsed[i].items[0].snippet.description;
       }
     }
-    
+
   }
 
   return res.send(JSON.stringify(combinedData));
 };
 
 songsDataController.getSpotifyData = (req, res, next) => {
+  console.log('request body ', req.body);
   const spotifyBaseUrl = 'https://api.spotify.com/v1/';
   const spotifySearchType = 'search';
   const spotifyParameters = {
@@ -258,7 +260,7 @@ songsDataController.getSpotifyData = (req, res, next) => {
 
     req.body.final = songsDataController.parseSpotifyData(JSON.parse(body), req.body.title, req.body.artist);
 
-    req.body.youTubeRequestArray = songsDataController.parseYouTubeRequests(req.body.final); 
+    req.body.youTubeRequestArray = songsDataController.parseYouTubeRequests(req.body.final);
 
 
     req.body.youTubeArray = songsDataController.getYouTubeData(req.body.youTubeRequestArray, req.body.final, res);

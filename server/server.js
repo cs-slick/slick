@@ -9,7 +9,7 @@ const bodyParser = require ('body-parser');
 app.use(cors());
 
 //body parser middleware
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //setting up path directory and going up one level
 app.use(express.static(__dirname + '/..'));
@@ -26,7 +26,7 @@ app.get('/songQueue', songsController.getSongsData, (req, res) => {
   res.json(req.data);
 });
 
-app.get('/search', songsController.test, songsController.getSpotifyData);
+app.post('/search', songsController.getSpotifyData);
 
 // listen for song being clicked and added to the queue, then update everyone's state
 

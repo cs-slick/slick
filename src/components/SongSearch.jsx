@@ -16,7 +16,7 @@ class SongSearch extends React.Component {
 					artist={searchResultObject.artist}
 					title={searchResultObject.title}
 					album={searchResultObject.album}
-					videoUrl={searchResultObject.videoUrl}
+					videoId={searchResultObject.videoId}
 					artistImg={searchResultObject.artistImg}
 					albumImg={searchResultObject.albumImg}
 				/>

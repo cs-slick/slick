@@ -6,7 +6,7 @@ class SongPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //videoUrl: 'Ux2WXNsqfe8',
+      //videoId: 'Ux2WXNsqfe8',
       player: null,
     };
 
@@ -18,7 +18,7 @@ class SongPlayer extends React.Component {
   }
 
   onReady(event) {
-    console.log(`YouTube Player object for videoUrl: "${this.state.videoUrl}" has been saved to state.`); // eslint-disable-line
+    // console.log(`YouTube Player object for videoId: "${this.state.video}" has been saved to state.`); // eslint-disable-line
     this.setState({
       player: event.target,
     });
@@ -41,7 +41,7 @@ class SongPlayer extends React.Component {
 
   // onChangeVideo() {
   //   this.setState({
-  //     videoUrl: this.state.videoUrl === videoUrlA ? videoUrlB : videoUrlA,
+  //     videoId: this.state.videoId === videoIdA ? videoIdB : videoIdA,
   //   });
   // }
 
@@ -57,7 +57,7 @@ class SongPlayer extends React.Component {
     };
     return (
       <div>
-        <YouTube opts={opts} videoId={this.props.currSong.videoUrl} onReady={this.onReady} onPlay={this.onPlayVideo} onPause={this.onPauseVideo} onEnd={this.onEndVideo}/>
+        <YouTube opts={opts} videoId={this.props.currSong.videoId} onReady={this.onReady} onPlay={this.onPlayVideo} onPause={this.onPauseVideo} onEnd={this.onEndVideo}/>
       </div>
     );
   }

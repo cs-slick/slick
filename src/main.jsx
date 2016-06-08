@@ -110,22 +110,23 @@ class Slick extends React.Component {
     let that = this;
     const searchData = {
       artist: $('form #song-search-artist').val(),
-      song: $('form #song-search-title').val(),
-    }
+      title: $('form #song-search-title').val(),
+    };
+    console.log('searchData ', searchData);
     $.ajax({
       method:'POST',
-      url: `${this.props.hostAddress}/search`,
+      url: '/search',
       data: searchData,
-      contentType: 'application/json',
-      dataType: 'json',
+      //contentType: 'application/json',
       error: () => {
         console.log('error getting search results');
       },
       success: data => {
         //data sets state for search results
         //data should come in formatted as needed
+        console.log('data is ', JSON.parse(data));
         that.setState({
-          searchResults: data,
+          searchResults: JSON.parse(data),
         })
       },
     });
@@ -141,7 +142,7 @@ class Slick extends React.Component {
        artist: 'KC and the Sunshine Band',
        title: 'Boogie Shoes',
        album: 'Saturday Night Fever',
-       videoUrl: 'Ux2WXNsqfe8',
+       videoId: 'Ux2WXNsqfe8',
        artistImg: 'http://rymimg.com/lk/o/a/290ada14c16c3ee387ae7978de563d39/949113.jpg',
        albumImg: 'https://upload.wikimedia.org/wikipedia/en/c/c5/KC_and_the_Sunshine_Band_album_cover.jpg',
       },
@@ -149,7 +150,7 @@ class Slick extends React.Component {
        artist: 'Kanye West',
        title: 'I Am a God',
        album: 'Yeezus',
-       videoUrl: 'OwSpn4pmv9Q',
+       videoId: 'OwSpn4pmv9Q',
        artistImg: 'http://cos.h-cdn.co/assets/16/06/980x490/landscape-1455221555-kanye-west-pablo-cover-art-news-021116.jpg',
        albumImg: 'http://www.billboard.com/files/styles/article_main_image/public/media/kanye-west-yeezus-650.jpg',
       }
@@ -163,7 +164,7 @@ class Slick extends React.Component {
         <SongSearch
           addSongToQueue={this.addSongToQueue}
           searchResults={this.state.searchResults}
-          handleSearchEvent={this.setDummySearchResultsData}
+          handleSearchEvent={this.searchForNewSongs}
           />
         <SongPlayer
           currSong={this.state.currentSong}
