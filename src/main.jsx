@@ -12,18 +12,14 @@ const socket = io();
 
 class Slick extends React.Component {
   constructor() {
-    //initial state is an empty
     super();
     this.state = {
-      //TODO: change to current song
       currentSong: '',
-      //TODO: change to queue and store the song list as changed
-      songInfo: [],
+      songInfo: [], //the queue of songs
       searchResults: [],
       player: null,
     };
-    //TODO: add any new methods here
-    //this.updateSong = this.updateSong.bind(this);
+    //All methods need to be registerd here
     this.newSongClick = this.newSongClick.bind(this);
     this.addSongToQueue = this.addSongToQueue.bind(this);
     this.handleServerPlayEvent = this.handleServerPlayEvent.bind(this);
@@ -65,20 +61,6 @@ class Slick extends React.Component {
     this.setState(newSongState);
   }
 
-  // updateSong(url) {
-  //   const index = this.state.songInfo.indexOf()
-  //   for (var i = 0; i < this.state.songInfo.length; i++) {
-  //     if (this.state.songInfo[i].trackUrl === url)
-  //       break;
-  //   }
-  //   let arraycopy = this.state.songInfo;
-  //   let nextSong = arraycopy.splice(i, 1);
-  //   this.setState({
-  //     currentSong: nextSong[0],
-  //     songInfo: arraycopy,
-  //   });
-  // }
-
   onPlay(e) { socket.emit('playCurrent'); }
   handleServerPlayCurrentSongEvent () { this.state.player.playVideo(); }
 
@@ -86,7 +68,10 @@ class Slick extends React.Component {
   handleServerPauseCurrentSongEvent () { this.state.player.pauseVideo(); }
 
   onEnded() {
-    this.updateSong(this.state.songInfo[0].trackUrl);
+    let songList = this.state.songList;
+    let nextSong = songList.splice(0,1)[0];
+    socket.emit('updateQueue', {songInfo: songList, currentSong: nextSong});
+    this.setState({songInfo: songList, currentSong: nextSong});
   }
 
   updateYoutubePlayer(event) {
@@ -119,8 +104,9 @@ class Slick extends React.Component {
       url: `${this.props.hostAddress}/search`,
       data: searchData,
       //contentType: 'application/json',
-      error: () => {
+      error: (err) => {
         console.log('error getting search results');
+        console.log(err);
       },
       success: data => {
         //data sets state for search results
