@@ -58,6 +58,7 @@ class Slick extends React.Component {
   }
 
   handleServerPlayEvent(newSongState) {
+    document.getElementsByClassName('song-play-tile')[0].style.display = inline-block;
     this.setState(newSongState);
   }
 
@@ -168,7 +169,4 @@ class Slick extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Slick hostAddress="http://192.168.1.123:3000"/>,
-  document.getElementById('content')
-)
+ReactDOM.render(<Slick hostAddress="http://192.168.1.123:3000"/>,document.getElementById('content'));
