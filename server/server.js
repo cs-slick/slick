@@ -26,7 +26,9 @@ app.get('/songQueue', (req, res) => {
   res.json(songsController.playerState);
 });
 
-app.post('/search', songsController.getSpotifyData);
+app.get('/search',songsController.test ,songsController.getSpotifyData, songsController.getYouTubeData, (req, res) => {
+  res.send(req.body.final);
+});
 
 // listen for song being clicked and added to the queue, then update everyone's state
 
