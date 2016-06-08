@@ -26,7 +26,7 @@ app.get('/songQueue', (req, res) => {
   res.json(songsController.playerState);
 });
 
-app.get('/search',songsController.test ,songsController.getSpotifyData, songsController.getYouTubeData, (req, res) => {
+app.post('/search', songsController.getSpotifyData, songsController.getYouTubeData, (req, res) => {
   res.send(req.body.final);
 });
 

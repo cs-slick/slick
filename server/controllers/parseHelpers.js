@@ -17,7 +17,7 @@ parseHelpers.parseSpotifyData = (data, title, artist) => {
 //loop through results and make sure the tracks are by the artist that is being queried
 
 for(var i = 0; i < tracksSpotifyData.length; i++) {
-  if(tracksSpotifyData[i].artists[0].name === artist) {
+  if(tracksSpotifyData[i].artists[0].name.toLowerCase() === artist.toLowerCase()) {
     editedTracks.push(tracksSpotifyData[i]);
   }
 }
