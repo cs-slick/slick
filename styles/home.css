@@ -1,18 +1,16 @@
-
-
+* {
+  -webkit-padding-start: 0px;
+}
 
 body {
-  background: #FF5300; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #FF5300, #FF3C00); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #FF5300, #FF3C00); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #FF5300, #FF3C00); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #FF5300, #FF3C00); /* Standard syntax */
+  background: black; /* For browsers that do not support gradients */
   width: 100%;
   height: 700px;
   text-align: center;
   text-transform: lowercase;
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-weight: 300;
+  color: white;
 }
 
 .currently-playing {
@@ -78,4 +76,57 @@ audio {
   display: inline-block;
   margin: 0;
   font-size: 17px;
+}
+
+.search-bar {
+  text-align: center;
+}
+
+.search-button {
+  text-align: center;
+}
+
+.song-result-tile {
+  height: 100px;
+  width: 320px;
+  display: block;
+  background-color: black;
+
+}
+
+.song-result-tile img {
+  float: left;
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+}
+
+.search-results-list {
+  overflow: auto;
+  height: auto;
+  background: white;
+}
+
+.song-tile-list {
+  text-align: left;
+  list-style: none;
+  display: inline-block;
+  height: 100px;
+
+}
+
+.song-tile-list ul {
+  text-align: left;
+  padding: 0;
+}
+
+.song-tile-list li {
+  text-align: left;
+}
+
+#search-container {
+  position: fixed;
+  left: 0;
+  top: 50;
+  color: white;
 }
