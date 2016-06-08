@@ -26,8 +26,8 @@ class Slick extends React.Component {
     this.onEnded = this.onEnded.bind(this);
     this.searchForNewSongs = this.searchForNewSongs.bind(this);
     this.onPlay = this.onPlay.bind(this);
-    this.onPause = this.onPause.bind(this);
     this.handleServerPlayCurrentSongEvent = this.handleServerPlayCurrentSongEvent.bind(this);
+    this.onPause = this.onPause.bind(this);
     this.handleServerPauseCurrentSongEvent = this.handleServerPauseCurrentSongEvent.bind(this);
     this.updateYoutubePlayer = this.updateYoutubePlayer.bind(this);
   }
@@ -68,7 +68,7 @@ class Slick extends React.Component {
   handleServerPauseCurrentSongEvent () { this.state.player.pauseVideo(); }
 
   onEnded() {
-    let songList = this.state.songList;
+    let songList = this.state.songInfo;
     let nextSong = songList.splice(0,1)[0];
     socket.emit('updateQueue', {songInfo: songList, currentSong: nextSong});
     this.setState({songInfo: songList, currentSong: nextSong});
