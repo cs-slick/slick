@@ -102,6 +102,8 @@ const API_ENDPOINT = "http://api.soundcloud.com/resolve"
 
 const songsDataController = {};
 
+songsDataController.playerState = {};
+
 songsDataController.getSongsData = (req, res, next) => {
   const songPromisesArr = SONGS.map(url => {
     return new Promise((resolve, reject) => {
