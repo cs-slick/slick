@@ -86,7 +86,10 @@ class Slick extends React.Component {
   handleServerPauseCurrentSongEvent () { this.state.player.pauseVideo(); }
 
   onEnded() {
-    this.updateSong(this.state.songInfo[0].trackUrl);
+    let songList = this.state.songList;
+    let nextSong = songList.splice(0,1)[0];
+    socket.emit('updateQueue', {songInfo: songList, currentSong: nextSong});
+    this.setState({songInfo: songList, currentSong: nextSong});
   }
 
   updateYoutubePlayer(event) {
