@@ -90,6 +90,9 @@ h1 {
     list-style: none;
 }
 
+li:hover {
+
+}
 /*SONGQUEUE STYLING*/
 
 .song-queue {
@@ -127,4 +130,13 @@ h1 {
   height:60px;
   padding-left: 8px;
   margin: 0px 0px;
+}
+
+.songs-in-queue:hover p {
+  color: black;
+}
+
+.songs-in-queue:hover {
+  background-color: white;
+  color: black;
 }
