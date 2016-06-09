@@ -120,6 +120,10 @@ class Slick extends React.Component {
     });
   }
 
+  componentDidUpdate() {
+
+  }
+
   componentDidMount() {
       //doing async request in componentDidMount
     let that = this;
@@ -173,4 +177,4 @@ const divStyle = {
   display: "none",
 };
 
-ReactDOM.render(<Slick hostAddress="http://192.168.1.123:3000"/>,document.getElementById('content'));
+ReactDOM.render(<Slick hostAddress="http://192.168.1.43:3000"/>,document.getElementById('content'));
