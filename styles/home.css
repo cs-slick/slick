@@ -15,6 +15,7 @@ body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   color: white;
   margin: 0px 0px;
+  padding: 0px;
 }
 
 h1 {
@@ -27,6 +28,10 @@ h1 {
   padding-left:30px;
   padding-top: 5px;
   margin: 0px 0px;
+}
+#content {
+  
+  background-size: cover;
 }
 
 #search-container {
@@ -73,17 +78,20 @@ h1 {
 /*IFRAME STYLING*/
 
 .song-player {
-  position: absolute;
-  left: 380px;
+  margin:0 auto;
+  width: 500px;
 }
 
 #player_1 {
   position: relative;
-  margin-top: 200px;
+  width: 500px;
+  padding-top: 100px;
+  margin: auto;
 }
 
 .song-play-tile {
   position: relative;
+  text-align: center;
 }
 
 .song-tile-list {

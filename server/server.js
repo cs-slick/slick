@@ -27,6 +27,7 @@ app.get('/songQueue', (req, res) => {
 });
 
 app.post('/search', songsController.getSpotifyData, songsController.getYouTubeData, (req, res) => {
+  //res.writeHeader(200, {'Content-Type': 'application/json'});
   res.send(req.body.final);
 });
 
