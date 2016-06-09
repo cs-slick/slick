@@ -26,8 +26,8 @@ class Slick extends React.Component {
     this.onEnded = this.onEnded.bind(this);
     this.searchForNewSongs = this.searchForNewSongs.bind(this);
     this.onPlay = this.onPlay.bind(this);
-    this.onPause = this.onPause.bind(this);
     this.handleServerPlayCurrentSongEvent = this.handleServerPlayCurrentSongEvent.bind(this);
+    this.onPause = this.onPause.bind(this);
     this.handleServerPauseCurrentSongEvent = this.handleServerPauseCurrentSongEvent.bind(this);
     this.updateYoutubePlayer = this.updateYoutubePlayer.bind(this);
   }
@@ -58,6 +58,7 @@ class Slick extends React.Component {
   }
 
   handleServerPlayEvent(newSongState) {
+    //document.getElementsByClassName('song-play-tile')[0].style.display = inline-block;
     this.setState(newSongState);
   }
 
@@ -68,7 +69,7 @@ class Slick extends React.Component {
   handleServerPauseCurrentSongEvent () { this.state.player.pauseVideo(); }
 
   onEnded() {
-    let songList = this.state.songList;
+    let songList = this.state.songInfo;
     let nextSong = songList.splice(0,1)[0];
     socket.emit('updateQueue', {songInfo: songList, currentSong: nextSong});
     this.setState({songInfo: songList, currentSong: nextSong});
@@ -141,11 +142,11 @@ class Slick extends React.Component {
     // add event listener for song added and song deleted
     socket.on('songEnded', this.onEnded);
   }
-
+// style={{backgroundImage: 'url("https://i.scdn.co/image/8cff70e0360bb20ca403ad003108bd5c5ea5378d")'}}
   render() {
     //songplayer gets an empty string as props before the component mounts
     return (
-      <div className='app' style={{backgroundImage: 'url("https://i.scdn.co/image/8cff70e0360bb20ca403ad003108bd5c5ea5378d")'}}>
+      <div className='app'>
         <SongSearch
           addSongToQueue={this.addSongToQueue}
           searchResults={this.state.searchResults}
@@ -168,7 +169,8 @@ class Slick extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Slick hostAddress="http://192.168.1.123:3000"/>,
-  document.getElementById('content')
-)
+const divStyle = {
+  display: "none",
+};
+
+ReactDOM.render(<Slick hostAddress="http://192.168.1.123:3000"/>,document.getElementById('content'));

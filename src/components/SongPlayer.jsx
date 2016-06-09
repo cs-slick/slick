@@ -1,25 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import YouTube from 'react-youtube';
+import SongPlayTile from './SongPlayTile.jsx';
 
 class SongPlayer extends React.Component {
   constructor(props) {
     super(props);
-    this.onPlayVideo = this.onPlayVideo.bind(this);
-    this.onPauseVideo = this.onPauseVideo.bind(this);
-    this.onEndVideo = this.onEndVideo.bind(this);
-  }
-
-  onPlayVideo() {
-    this.props.onPlay();
-  }
-
-  onPauseVideo() {
-    this.props.onPause();
-  }
-
-  onEndVideo() {
-    this.props.onEnded();
   }
 
   render() {
@@ -33,11 +19,14 @@ class SongPlayer extends React.Component {
       }
     };
     return (
-      <div>
+      <div className='song-player'>
         <YouTube opts={opts} videoId={this.props.currSong.videoId} onReady={this.props.onReady} onPlay={this.props.onPlay} onPause={this.props.onPause} onEnd={this.props.onEnded}/>
+        <SongPlayTile currSong={this.props.currSong}/>
       </div>
     );
   }
 }
 
 export default SongPlayer
+
+// <div>{this.props.currSong.description}</div>
