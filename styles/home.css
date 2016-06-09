@@ -2,8 +2,15 @@
   -webkit-padding-start: 0px;
 }
 
+/*#content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}*/
+
 body {
-  background: black; 
+  background: black;
   width: 100%;
   font-family: "Helvetica Neue", Arial, sans-serif;
   color: white;
@@ -65,10 +72,22 @@ h1 {
 
 /*IFRAME STYLING*/
 
-#player_1 {
+.song-player {
   position: absolute;
   left: 380px;
-  top: 200px;
+}
+
+#player_1 {
+  position: relative;
+  margin-top: 200px;
+}
+
+.song-play-tile {
+  position: relative;
+}
+
+.song-tile-list {
+    list-style: none;
 }
 
 /*SONGQUEUE STYLING*/

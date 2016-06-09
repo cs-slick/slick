@@ -19,7 +19,7 @@ class SongPlayer extends React.Component {
       }
     };
     return (
-      <div>
+      <div className='song-player'>
         <YouTube opts={opts} videoId={this.props.currSong.videoId} onReady={this.props.onReady} onPlay={this.props.onPlay} onPause={this.props.onPause} onEnd={this.props.onEnded}/>
         <SongPlayTile currSong={this.props.currSong}/>
       </div>
