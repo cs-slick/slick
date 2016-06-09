@@ -2,7 +2,7 @@ const mocha = require('mocha');
 const expect = require('chai').expect;
 const should = require('chai').should();
 const server = require('../server');
-const request = require('supertest')(server);
+const request = require('supertest');
 const io = require('socket.io-client');
 const io_server = require('./mock-server');
 
@@ -18,22 +18,25 @@ var chatUser2 = {'user': 'Brendan', 'action': 'play', 'data': 'britneyspears.mp3
 
 describe('Server Routes Testing', function() {
   it('should server index html on GET request to /', function(done) {
-    request
+    request("http://localhost:3000")
       .get('/')
       .expect('Content-Type', /html/)
       .expect(200, done);
   });
 
   it('should respond to GET request to /songQueue with status code 200', function(done) {
-    request
+    request("http://localhost:3000")
     .get('/songQueue')
     .expect(200, done);
   });
 
-  it('sending JSON object to client on GET request /songQueue', function(done) {
+  it('sending JSON object to client on POST request /search', function(done) {
+    var searchTerms = {artist: 'queen', title: 'we are the champions'};
     // {artist,songName,thumbnailUrl, htmlString}
-    request
-      .get('/search')
+    request("http://localhost:3000")
+      .post('/search')
+      .type('form')
+      .send(searchTerms)
       .expect(function(res) {
         //console.log(res.text);
           const jsonDataArr = JSON.parse(res.text);
