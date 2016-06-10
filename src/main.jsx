@@ -121,7 +121,8 @@ class Slick extends React.Component {
   }
 
   componentDidUpdate() {
-
+    console.log('state is ', this.state);
+     $('#content').css("background-image", `url(${this.state.currentSong.artistImg})`);
   }
 
   componentDidMount() {
@@ -177,4 +178,4 @@ const divStyle = {
   display: "none",
 };
 
-ReactDOM.render(<Slick hostAddress="http://192.168.1.43:3000"/>,document.getElementById('content'));
+ReactDOM.render(<Slick hostAddress="http://localhost:3000"/>,document.getElementById('content'));
