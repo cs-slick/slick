@@ -1,32 +1,32 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import YouTube from 'react-youtube';
+import SongPlayTile from './SongPlayTile.jsx';
 
 class SongPlayer extends React.Component {
-  componentDidMount() {
-    // change clientId to your own client id
-    this.clientId = 'YOUR_CLIENT_ID';
-    this.refs.audio.addEventListener('playing', this.props.onPlay);
-    this.refs.audio.addEventListener('pause', this.props.onPause);
-    this.refs.audio.addEventListener('ended', this.props.onEnded);
+  constructor(props) {
+    super(props);
   }
 
   render() {
-    // convenient way of passing audio url using SoundCloud API to <audio>
-    // element
-    const audioUrl = this.props.currSong.trackUrl + `?client_id=${this.clientId}`;
+    const opts = {
+      height: '390',
+      width: '640',
+      playerVars: {
+        autoplay: 1,
+        fs: 0,
+        enablejsapi: 1,
+      }
+    };
     return (
-      <div className="song-player">
-        <img src={this.props.currSong.thumbnailUrl}></img>
-        <p className="currently-playing">
-          {this.props.currSong.artist}:  {this.props.currSong.songName}
-        </p>
-        <audio src={audioUrl}
-          ref="audio"
-          controls
-          autoPlay="true"
-          />
+      <div className='song-player'>
+        <YouTube opts={opts} videoId={this.props.currSong.videoId} onReady={this.props.onReady} onPlay={this.props.onPlay} onPause={this.props.onPause} onEnd={this.props.onEnded}/>
+        <SongPlayTile currSong={this.props.currSong}/>
       </div>
-    )
+    );
   }
 }
 
-export default SongPlayer;
+export default SongPlayer
+
+// <div>{this.props.currSong.description}</div>

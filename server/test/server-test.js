@@ -2,7 +2,7 @@ const mocha = require('mocha');
 const expect = require('chai').expect;
 const should = require('chai').should();
 const server = require('../server');
-const request = require('supertest')(server);
+const request = require('supertest');
 const io = require('socket.io-client');
 const io_server = require('./mock-server');
 
@@ -18,30 +18,36 @@ var chatUser2 = {'user': 'Brendan', 'action': 'play', 'data': 'britneyspears.mp3
 
 describe('Server Routes Testing', function() {
   it('should server index html on GET request to /', function(done) {
-    request
+    request("http://localhost:3000")
       .get('/')
       .expect('Content-Type', /html/)
       .expect(200, done);
   });
 
   it('should respond to GET request to /songQueue with status code 200', function(done) {
-    request
+    request("http://localhost:3000")
     .get('/songQueue')
     .expect(200, done);
   });
 
-  it('sending JSON object to client on GET request /songQueue', function(done) {
+  it('sending JSON object to client on POST request /search', function(done) {
+    var searchTerms = {artist: 'queen', title: 'we are the champions'};
     // {artist,songName,thumbnailUrl, htmlString}
-    request
-      .get('/songQueue')
-      .expect('Content-Type', /json/)
+    request("http://localhost:3000")
+      .post('/search')
+      .type('form')
+      .send(searchTerms)
       .expect(function(res) {
-          const jsonDataArr = res.body;
+        //console.log(res.text);
+          const jsonDataArr = JSON.parse(res.text);
           jsonDataArr.forEach(songData => {
             if (!('artist' in songData)) throw new Error("missing artist property");
-            if (!('songName' in songData)) throw new Error("missing songName property");
-            if (!('thumbnailUrl' in songData)) throw new Error("missing thumbnailUrl property");
-            if (!('trackUrl' in songData)) throw new Error("missing trackUrl property");
+            if (!('artistImg' in songData)) throw new Error("missing artistImg property");
+            if (!('album' in songData)) throw new Error("missing album property");
+            if (!('albumImg' in songData)) throw new Error("missing albumImg property");
+            if (!('title' in songData)) throw new Error("missing title property");
+            if (!('description' in songData)) throw new Error("missing description property");
+            if (!('videoId' in songData)) throw new Error("missing videoId property");
           });
       })
       .end(done);

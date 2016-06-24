@@ -1,4 +1,5 @@
 bower_components/
 node_modules/
-src/bundle.js
-src/bundle.js.map
+bundle.js
+npm-debug.log
+privateKeys.js

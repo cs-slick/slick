@@ -1,50 +1,81 @@
+'use strict';
+
 const request = require('request');
 const CLIENT_ID = require('../../client-id.js');
+//const Gracenote = require('node-gracenote');
+const PrivateKeys = require('../../privateKeys.js');
+const parseHelpers =  require('./parseHelpers.js');
+const qs = require('querystring');
 
-// provide hardcoded array of song urls to achieve MVP
-// future feature: add search functionality on front end to query list of
-// song urls
-const SONGS = [
-  'https://soundcloud.com/theleisurecollective/nobody-feat-goldlink',
-  'https://soundcloud.com/caseyperez/tempting-changes-2pac-x-chloe',
-  'https://soundcloud.com/johncree/senior-skip-day-mac-miller',
-  'https://soundcloud.com/andersonpaak/am-i-wrong-anderson-paak',
-  'https://soundcloud.com/topdawgent/kendrick-lamar-backseat',
-  'https://soundcloud.com/just-a-gent/backandforth',
-  'https://soundcloud.com/nightsinoctober/champions-good-music'
-];
-
-const API_ENDPOINT = "http://api.soundcloud.com/resolve"
+///////////////////////////////
 
 const songsDataController = {};
 
-songsDataController.getSongsData = (req, res, next) => {
-  const songPromisesArr = SONGS.map(url => {
-    return new Promise((resolve, reject) => {
-      const apiCall = `${API_ENDPOINT}?url=${url}&client_id=${CLIENT_ID}`
-      request(apiCall, (err, res, body) => {
-        if (res.statusCode === 404) resolve('');
-        resolve(body);
-      });
-    });
-  });
-  Promise
-    .all(songPromisesArr)
-    .then(dataArr => {
-      const filterEmptyStrings = dataArr.filter(songData => songData !== '');
-      const parsedSongDataArr = filterEmptyStrings.map(JSON.parse);
-      const output = parsedSongDataArr.map(songData => {
-        return {
-          artist: songData.user.username,
-          songName: songData.title,
-          thumbnailUrl: songData.artwork_url,
-          trackUrl: songData.stream_url,
-        }
-      });
-      req.data = output;
-      next();
-    });
+songsDataController.playerState = {};
 
+////// TEST ONLY ////////////
+
+songsDataController.test = (req, res, next) => {
+  req.body.artist = 'Queen';
+  req.body.title = '';
+  next();
+}
+
+/////////////////////////////
+// SONGS DATA CONTROLLER SPOTIFY
+
+songsDataController.getSpotifyData = (req, res, next) => {
+  console.log(req.body);
+  // we are creating a spotify API call request
+  const spotifyBaseUrl = 'https://api.spotify.com/v1/';
+  const spotifySearchType = 'search';
+  const spotifyParameters = {
+    type: 'artist,track',
+    market: 'US',
+    limit: 50,
+  };
+
+  spotifyParameters.q = req.body.artist; // Define search term
+
+  const spotifyQuery = spotifyBaseUrl + spotifySearchType + '?' + qs.stringify(spotifyParameters);
+
+  const spotifyOptions = {
+    Accept: 'application/json',
+    url: spotifyQuery,
+  };
+ /// making the actual Spotify API CALL
+  request(spotifyOptions, (err, response, body) => {
+
+    // PARSE result from spotify API CALL using parseHelpers parseSpotifyData
+
+    req.body.parsedSpotifyData = parseHelpers.parseSpotifyData(JSON.parse(body), req.body.title, req.body.artist);
+    if( req.body.parsedSpotifyData.length === 0 ) {
+      res.status(404);
+      return res.send("No search results match the artist and/or song name that you put out");
+    }
+    // create an array of promises that will make Youtube API calls
+    req.body.youTubeRequestArray = parseHelpers.parseYouTubeRequests(req.body.parsedSpotifyData);
+
+    next();
+
+  });
 };
+
+
+
+songsDataController.getYouTubeData = (req, res, next) => {
+  Promise
+  .all(req.body.youTubeRequestArray)
+  .then( (youTubeDataArray) => {
+    // need to JSON parse each element of the array
+    var afterPromiseYouTubeData = youTubeDataArray.map( JSON.parse);
+
+    // now parse youtubeData with spotify Data and make final stringified object to send to client
+    req.body.final = parseHelpers.parseYouTubeData(afterPromiseYouTubeData, req.body.parsedSpotifyData);
+
+    next();
+  });
+};
+
 
 module.exports = songsDataController;
