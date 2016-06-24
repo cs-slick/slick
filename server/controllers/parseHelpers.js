@@ -12,7 +12,7 @@ parseHelpers.parseSpotifyData = (data, title, artist) => {
   var parsedSpotifyData = [];
   var tracksSpotifyData = data.tracks.items;
   var editedTracks = [];
-  var parsedTracks;
+  var parsedTracks = [];
 
 //loop through results and make sure the tracks are by the artist that is being queried
 
@@ -40,7 +40,9 @@ for(var i = 0; i < tracksSpotifyData.length; i++) {
   }
   // now traverse tracks objects and pull out necessary info from each
   //and push complete object into final array
-
+  if (parsedTracks.length === 0) {
+    return [];
+  }
   parsedTracks.forEach( (trackObject) => {
 
     var parsedObject = {};

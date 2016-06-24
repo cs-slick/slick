@@ -178,4 +178,4 @@ const divStyle = {
   display: "none",
 };
 
-ReactDOM.render(<Slick hostAddress="http://localhost:3000"/>,document.getElementById('content'));
+ReactDOM.render(<Slick hostAddress="http://192.168.1.66:3000"/>,document.getElementById('content'));
